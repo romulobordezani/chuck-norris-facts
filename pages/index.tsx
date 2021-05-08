@@ -1,9 +1,8 @@
 import { FunctionComponent } from "react";
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 
 const Home: FunctionComponent = () => (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Chuck Norris Facts</title>
         <meta name="description" content="Chuck Norris Facts" />
