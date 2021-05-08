@@ -1,19 +1,12 @@
-import { FunctionComponent } from "react";
-import Head from 'next/head';
+import { FunctionComponent } from 'react';
+import CustomHead from '../components/__shared/CustomHead';
+import Search from '../components/search';
 
-const Home: FunctionComponent = () => (
+const HomePage: FunctionComponent = () => (
     <div>
-      <Head>
-        <title>Chuck Norris Facts</title>
-        <meta name="description" content="Chuck Norris Facts" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </Head>
-      <div>Hello World!</div>
+      <CustomHead />
+      <Search />
     </div>
   );
 
-export default Home;
+export default HomePage;
