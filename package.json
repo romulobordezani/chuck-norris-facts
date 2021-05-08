@@ -9,17 +9,6 @@
     "lint": "eslint .",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn build"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
   "dependencies": {
     "next": "10.2.0",
     "react": "17.0.2",
