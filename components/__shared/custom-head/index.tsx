@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactElement} from 'react';
+import React, { FunctionComponent, ReactElement } from 'react';
 import Head from 'next/head';
 
 const DEFAULT_TITLE = 'Chuck Norris Facts';

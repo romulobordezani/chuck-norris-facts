@@ -1,3 +1,2 @@
-import { IFact } from './IFact';
-
-export type { IFact };
+export type { IFact } from './IFact';
+export type { IFormField } from './IFormField';

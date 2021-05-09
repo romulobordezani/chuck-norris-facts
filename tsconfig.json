@@ -24,6 +24,9 @@
       ],
       "@test": [
         "./test"
+      ],
+      "@services": [
+        "./server/services"
       ]
     }
   },

@@ -40,6 +40,7 @@
       {
         "allow": ["warn", "error"]
       }
-    ]
+    ],
+    "object-curly-spacing": ["error", "always"]
   }
 }
