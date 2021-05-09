@@ -7,6 +7,7 @@ interface ICustomHead {
     title?: string
 }
 
+// TODO - Add Open Graph meta-tags to allow sharing on social media, after receiving API data
 const CustomHead: FunctionComponent<ICustomHead> = ({ title = DEFAULT_TITLE  }): ReactElement => (
     <Head>
         <title>{title}</title>

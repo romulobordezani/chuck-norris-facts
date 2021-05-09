@@ -1,4 +1,4 @@
-export interface IFact {
+export interface IJoke {
     categories: string[],
     created_at: Date,
     icon_url: string;

@@ -13,6 +13,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 // TODO - Replace with log4js, new relic, or winston
 const log = console;
 
+// TODO - Imporve this method to show details of the external call, but only in the logs
 const getMeaningFullError = (error: AxiosError<any>) =>	`${error.message}`;
 
 class ExceptionHandler {

@@ -2,7 +2,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 
 import { render } from '@test';
-import HomePage from './index';
+import HomePage from '../../pages';
 
 describe('<HomePage />', () => {
   it('Should render as expected', async () => {
