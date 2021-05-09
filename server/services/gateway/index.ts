@@ -27,7 +27,7 @@ class Gateway {
         });
 
         this.axios.interceptors.response.use((response: AxiosResponse) => {
-            res.json(response);
+            res.json(response.data);
             return response;
         },(error: AxiosError) => {
             ExceptionHandler.execute(req, res, error);

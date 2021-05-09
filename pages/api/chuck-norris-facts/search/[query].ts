@@ -5,7 +5,7 @@ export default async (req: NextApiRequest, res: NextApiResponse):Promise<void> =
     const gateway = new Gateway(req, res);
 
     return await gateway.axios.get(
-        `/searc`,
+        `/search`,
         {
             params: req.query
         }
