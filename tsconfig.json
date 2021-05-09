@@ -24,9 +24,6 @@
       ],
       "@test": [
         "./test"
-      ],
-      "@register-utils": [
-        "./components/register/utils"
       ]
     }
   },

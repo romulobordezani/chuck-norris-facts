@@ -8,9 +8,10 @@ const Search: FunctionComponent = () => {
 
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
+
         try {
-            const result = await axios.get(`https://api.chucknorris.io/jokes/search?query=${query}`);
-            setResult(result.data.result);
+            const result = await axios.get(`/api/chuck-norris-facts/search/${query}`);
+            setResult(result?.data?.result);
         } catch(error) {
             console.error(error);
         }
@@ -19,7 +20,7 @@ const Search: FunctionComponent = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={query} onChange={event => setQuery(event.target.value)} />
+                <input type="search" value={query} onChange={event => setQuery(event.target.value)} />
                 <button type="submit">Pesquisar</button>
             </form>
             <div>
