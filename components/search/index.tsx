@@ -10,7 +10,7 @@ const Search: FunctionComponent = () => {
         event.preventDefault();
 
         try {
-            const result = await axios.get(`/api/chuck-norris-facts/search/${query}`);
+            const result = await axios.get(`/api/chuck-norris-facts/search`, { params: { query } });
             setResult(result?.data?.result);
         } catch(error) {
             console.error(error);
