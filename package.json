@@ -1,6 +1,9 @@
 {
   "name": "chuck-norris-facts",
   "version": "0.1.0",
+  "engine": {
+    "node": "14.16.1"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,8 +14,12 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "axios": "^0.21.1",
     "deepmerge": "^4.2.2",
+    "identity-obj-proxy": "^3.0.0",
     "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -35,6 +42,7 @@
     "jest": "^26.6.3",
     "jest-watch-typeahead": "^0.6.3",
     "prettier": "^2.2.1",
+    "sass": "^1.32.12",
     "typescript": "^4.2.4"
   },
   "repository": {

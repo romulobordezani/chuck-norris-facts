@@ -1,0 +1,46 @@
+@import "/styles/colors";
+
+.search {
+  position: sticky;
+  background-color: $darker-grey;
+  background-image: url("/chuck_norris_PNG19.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  &__submit,
+  &__lucky,
+  &__input {
+    border: none;
+    outline: none;
+    color: #96a6b7;
+    border-radius: 0.5rem;
+    margin: 1rem;
+  }
+
+  &__input {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  &__submit {
+    background-color: $coral;
+    color: brown;
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+  }
+
+  &__lucky {
+    cursor: help;
+    background-color: $mantis;
+    color: $darker-grey;
+    padding: 0.7rem 2rem;
+  }
+}

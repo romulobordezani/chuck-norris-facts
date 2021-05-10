@@ -1,40 +1,53 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { IJoke } from '@types';
+import React, { FunctionComponent } from 'react';
+import { GetServerSideProps } from 'next';
 import axios from 'axios';
+import { IJoke } from '@types';
 
 import CustomHead from '../../components/__shared/custom-head';
 import Joke from '../../components/joke';
+import ChuckAintAccomplishedItYet from '../../components/not-found-joke';
+import Search from '../../components/search-box';
+import { useRouter } from 'next/router';
 
-const JokePage: FunctionComponent = () => {
+interface IJokePageProps {
+    joke: IJoke
+}
+
+const JokePage: FunctionComponent<IJokePageProps> = ({ joke }) => {
     const router = useRouter();
-    const { id } = router.query;
-    const [joke, setJoke] = useState<IJoke | null>(null);
 
-    useEffect(() => {
+    const fetch = async (query: string | string[]) => {
         try {
-            if (id) {
-                axios.get(`/api/chuck-norris-facts/jokes/${id}`)
-                    .then(result => {
-                        setJoke(result?.data);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-            }
-
+            await router.push(`/search?query=${query}`);
         } catch(error) {
             console.error(error);
         }
-    }, [id]);
+    }
 
     return (
         <>
             <CustomHead />
-            <Joke joke={joke}/>
+            <Search fetch={fetch} />
+            {joke && (
+                <Joke joke={joke}/>
+            )}
+
+            {!joke && (
+                <ChuckAintAccomplishedItYet />
+            )}
         </>
     )
-
 };
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    try {
+        const result = await axios.get(`${process.env.CHUCK_NORRIS_API_URL}/${context.params?.id}`);
+        return { props: { joke: result.data } };
+    } catch(error) {
+        // TODO Replace with log4js or whatever
+        console.error(error);
+        return { props: { joke: null } };
+    }
+}
 
 export default JokePage;
