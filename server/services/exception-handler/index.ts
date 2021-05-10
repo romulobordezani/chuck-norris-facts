@@ -13,7 +13,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 // TODO - Replace with log4js, new relic, or winston
 const log = console;
 
-// TODO - Imporve this method to show details of the external call, but only in the logs
+// TODO - Improve this method to show details of the external call, but only in the logs
 const getMeaningFullError = (error: AxiosError<any>) =>	`${error.message}`;
 
 class ExceptionHandler {
@@ -118,21 +118,21 @@ class ExceptionHandler {
 		let errorCode;
 		let responseData = null;
 
-		if ('response' in error && error.response) {
-			errorCode = error.response.status;
+		if ('response' in error && error?.response) {
+			errorCode = error?.response?.status;
 		}
 
-		if ('code' in error && error.code === 'ECONNABORTED') {
+		if ('code' in error && error?.code === 'ECONNABORTED') {
 			errorCode = 'TIMEOUT';
 		}
 
-		if (error && error.response && error.response.data) {
-			responseData = error.response.data;
+		if (error && error.response && error?.response?.data) {
+			responseData = error?.response?.data;
 		}
 
 		const responseDataFields =
-			responseData && responseData.fields
-				? responseData.fields
+			responseData && responseData?.fields
+				? responseData?.fields
 				: null;
 
 		switch (errorCode) {

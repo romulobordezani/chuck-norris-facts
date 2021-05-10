@@ -28,15 +28,17 @@ const Search: FunctionComponent<ISearchProps> = ({ fetch, initialQuery = '' }) =
 
     return (
         <div className={styles.search}>
-
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={handleSubmit}
+                className={styles.search__form}
+            >
                 <div>
                     <input
                         type="search"
                         value={query}
                         onChange={event => setQuery(event.target.value)}
                         className={styles.search__input}
-                        placeholder="Search..."
+                        placeholder="Chuck Norris did what???"
                     />
                 </div>
                 <div>
