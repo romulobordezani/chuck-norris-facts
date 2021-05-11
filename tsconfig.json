@@ -20,13 +20,13 @@
     "jsx": "preserve",
     "paths": {
       "@types": [
-        "./types"
+        ".src//types"
       ],
       "@test": [
-        "./test"
+        "./src/test"
       ],
       "@services": [
-        "./server/services"
+        "./src/server/services"
       ]
     }
   },

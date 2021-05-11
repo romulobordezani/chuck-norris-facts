@@ -1,0 +1,51 @@
+@import "/src/styles/colors";
+
+.joke {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  margin: 3rem 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 100%;
+  border-radius: 0.4rem;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    height: 110%;
+  }
+
+  > a {
+    padding: 3rem;
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+
+    mark {
+      background: $turquoise;
+      border-radius: 0.2rem;
+    }
+
+    /*
+      Important for accessibility
+      https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark#accessibility_concerns
+    */
+    mark::before,
+    mark::after {
+      clip-path: inset(100%);
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    mark::before {
+      content: " [highlight start] ";
+    }
+
+    mark::after {
+      content: " [highlight end] ";
+    }
+  }
+
+
+}
