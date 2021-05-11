@@ -1,0 +1,10 @@
+@import "/styles/colors";
+
+.randomSearchButton {
+  border: none;
+  outline: none;
+  cursor: help;
+  background-color: $mantis;
+  color: $darker-grey;
+  padding: 0.7rem 2rem;
+}

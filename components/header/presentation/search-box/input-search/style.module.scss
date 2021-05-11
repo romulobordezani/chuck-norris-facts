@@ -1,0 +1,26 @@
+@import "/styles/colors";
+
+.searchBox {
+  &__input {
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 1.3rem;
+    padding: 0.7rem;
+    border-radius: 0.5rem 0 0.5rem 0.5rem ;
+
+    &::placeholder {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  }
+
+  &__submit {
+    border: none;
+    outline: none;
+    background-color: $coral;
+    color: brown;
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+  }
+}

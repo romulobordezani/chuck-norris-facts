@@ -3,11 +3,11 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { IJoke } from '@types';
 
-import CustomHead from '../../components/__shared/custom-head';
-import Search from '../../components/search-box';
+import CustomHead from '../../components/custom-head';
 import Results from '../../components/results';
 import Loading from '../../components/loading';
 import NoResults from '../../components/no-results';
+import Header from '../../components/header/presentation';
 
 const HomePage: FunctionComponent = () => {
     const router = useRouter();
@@ -51,7 +51,7 @@ const HomePage: FunctionComponent = () => {
     return (
         <>
             <CustomHead />
-            <Search
+            <Header
                 fetch={fetch}
                 initialQuery={currentQuery}
             />

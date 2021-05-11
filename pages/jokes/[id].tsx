@@ -3,10 +3,10 @@ import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { IJoke } from '@types';
 
-import CustomHead from '../../components/__shared/custom-head';
+import CustomHead from '../../components/custom-head';
 import Joke from '../../components/joke';
 import ChuckAintAccomplishedItYet from '../../components/not-found-joke';
-import Search from '../../components/search-box';
+import SearchBox from '../../components/header/presentation/search-box';
 import { useRouter } from 'next/router';
 
 interface IJokePageProps {
@@ -27,7 +27,7 @@ const JokePage: FunctionComponent<IJokePageProps> = ({ joke }) => {
     return (
         <>
             <CustomHead />
-            <Search fetch={fetch} />
+            <SearchBox fetch={fetch} />
             {joke && (
                 <Joke joke={joke}/>
             )}
