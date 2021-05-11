@@ -1,0 +1,36 @@
+@import "/src/styles/colors";
+@import "/src/styles/measures";
+
+.searchBox {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 1.3rem;
+    padding: 0.7rem;
+    border-radius: $leftButton;
+    height: 3rem;
+    color: $paper;
+    width: 10rem;
+
+    &::placeholder {
+      font-size: 1.2rem;
+      text-align: left;
+      color: $paper;
+    }
+  }
+
+  &__submit {
+    border: none;
+    outline: none;
+    background-color: $coral;
+    color: brown;
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+    border-radius: $rightButton;
+    height: $buttonHeight;
+  }
+}

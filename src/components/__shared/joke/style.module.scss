@@ -1,0 +1,68 @@
+@import "/src/styles/colors";
+
+.joke {
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.5);
+  margin: 3rem 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  transition: all 0.5s linear;
+
+  &.self {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,0.5);
+    }
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 26px 0 rgba(0,0,0,0.9);
+  }
+
+  > a, > div {
+    padding: 3rem;
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+
+    mark {
+      background: $turquoise;
+      border-radius: 0.2rem;
+    }
+
+    /*
+      Important for accessibility
+      https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark#accessibility_concerns
+    */
+    mark::before,
+    mark::after {
+      clip-path: inset(100%);
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    mark::before {
+      content: " [highlight start] ";
+    }
+
+    mark::after {
+      content: " [highlight end] ";
+    }
+  }
+
+  &__twitterButton {
+    color: $turquoise;
+    font-size: 1.1rem;
+    padding: 0 3rem 3rem!important ;
+
+    svg {
+      vertical-align: text-bottom;
+    }
+  }
+
+}

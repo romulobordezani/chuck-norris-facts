@@ -1,0 +1,17 @@
+@import "/src/styles/colors";
+@import "/src/styles/measures";
+
+.randomSearchButton {
+  border: none;
+  outline: none;
+  cursor: help;
+  background-color: $mantis;
+  color: $darker-grey;
+  padding: 0.7rem 2rem;
+  border-radius: $radiusButton;
+  height: $buttonHeight;
+
+  svg {
+    vertical-align: text-bottom;
+  }
+}

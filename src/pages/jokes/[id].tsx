@@ -1,48 +1,33 @@
 import React, { FunctionComponent } from 'react';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
-import { IJoke } from '../../types';
-
-import CustomHead from '../../components/custom-head';
-import Joke from '../../components/joke';
-import ChuckAintAccomplishedItYet from '../../components/not-found-joke';
-import SearchBox from '../../components/header/presentation/search-box';
-import { useRouter } from 'next/router';
+import { IJoke } from '@types';
+import CustomHead from '../../components/__shared/custom-head';
+import { PageJokeContainer } from '../../components/page-joke';
 
 interface IJokePageProps {
-    joke: IJoke
+    joke: IJoke;
+    host: string;
 }
 
-const JokePage: FunctionComponent<IJokePageProps> = ({ joke }) => {
-    const router = useRouter();
-
-    const fetch = async (query: string | string[]) => {
-        try {
-            await router.push(`/search?query=${query}`);
-        } catch(error) {
-            console.error(error);
-        }
-    }
-
+const JokePage: FunctionComponent<IJokePageProps> = ({ joke, host }) => {
     return (
         <>
-            <CustomHead />
-            <SearchBox fetch={fetch} />
-            {joke && (
-                <Joke joke={joke}/>
-            )}
-
-            {!joke && (
-                <ChuckAintAccomplishedItYet />
-            )}
+            <CustomHead {...{ joke, host }} />
+            <PageJokeContainer {...{ joke, host }} />
         </>
     )
 };
 
+/**
+ * IMPORTANT NOTE:
+ * Pre-fetches the IJoke before Redux on Client Side because of the Open Graphs MetaTags on `Server Side Rendering`,
+ * used to share the jokes in Social Media, WhatsApp, and so on.
+*/
 export const getServerSideProps: GetServerSideProps = async (context) => {
     try {
         const result = await axios.get(`${process.env.CHUCK_NORRIS_API_URL}/${context.params?.id}`);
-        return { props: { joke: result.data } };
+        return { props: { joke: result.data, host: context.req.headers.host } };
     } catch(error) {
         // TODO Replace with log4js or whatever
         console.error(error);

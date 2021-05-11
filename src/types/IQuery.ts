@@ -1,3 +1,3 @@
-type query = string | string[];
+type query = string | string[] | undefined;
 
 export default query;
