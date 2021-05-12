@@ -15,11 +15,22 @@ const Results: FunctionComponent<IResultProps> = ({
       query ,
       isALucky
 }) => {
+    const total = result?.length;
+
     return (
-        <div className={styles.results}>
-            <h3>
-                About <span className={styles.results__amount}>{result?.length}</span> {isALucky && 'lucky '} results
-            </h3>
+        <div className={styles.results} data-testid="results-component">
+            {isALucky && (
+                <h3>
+                    Just <span className={styles.results__amount}>a lucky</span> result.
+                </h3>
+            )}
+
+            {!isALucky && (
+                <h3>
+                    About <span className={styles.results__amount}>{total}</span> results.
+                </h3>
+            )}
+
             {result.map(joke => (
                 <JokeWithLink
                     key={joke?.id}
@@ -27,6 +38,8 @@ const Results: FunctionComponent<IResultProps> = ({
                     query={query}
                 />
             ))}
+
+            { /* TODO - Missing a pagination Here, when we got too much results, page goes slow */ }
         </div>
     );
 };

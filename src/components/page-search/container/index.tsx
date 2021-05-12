@@ -10,7 +10,14 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
    initialQuery,
    initialLucky
 }) => {
-    const { data, loading, error, query, isALucky, isAnEmpty } = useSelector((state: IRootState) => state.search);
+    const {
+        data,
+        loading,
+        error,
+        query,
+        isALucky,
+        isAnEmpty
+    } = useSelector((state: IRootState) => state.search);
     
     const currentQuery = query;
     const [joinedData, setJoinedData] = useState<IJoke[]>(initialResult);
@@ -18,6 +25,7 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
     const hasContent = joinedData?.length > 0;
 
     useEffect(() => {
+        /* istanbul ignore next -- Dispatched within SSR  */
         if (data) {
             setJoinedData(data);
         }

@@ -7,7 +7,7 @@ interface INoResultsProps {
 }
 
 const NoResults: FunctionComponent<INoResultsProps> = ({ query }): ReactElement => (
-    <div className={styles.results}>
+    <div className={styles.results} data-testid="no-result-component">
         <h3>N<span className={styles.results__amount}>0</span> results found.</h3>
         <div className={styles.results__joke}>
             Probably Chuck Norris did something related to {' '}

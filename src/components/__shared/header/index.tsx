@@ -9,7 +9,7 @@ const Header: FunctionComponent<ISearchPageProps> = ({
      initialLucky
 }) => {
     return (
-        <header className={styles.header}>
+        <header className={styles.header} data-testid="header-component">
             <div className={styles.header__searchBox}>
                 <SearchBoxContainer {...{
                     initialResult,

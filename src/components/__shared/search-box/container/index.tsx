@@ -13,8 +13,10 @@ const SearchBoxContainer: FunctionComponent<ISearchPageProps> = ({
     const dispatch = useDispatch();
     const [query, setQuery] = useState<IQuery>(initialQuery);
 
-    const handleSubmit = useCallback((event: FormEvent | null, avoidRouting?: boolean): void => {
-        if (!avoidRouting) {
+    const handleSubmit = useCallback((event: FormEvent | null): void => {
+        const isTheQueryFullFilled = query !== '';
+
+        if (isTheQueryFullFilled) {
             router.push(`/jokes/search?query=${query}`);
         }
 
@@ -22,7 +24,12 @@ const SearchBoxContainer: FunctionComponent<ISearchPageProps> = ({
     }, [dispatch, query]);
 
     const handleLuckySubmit = useCallback(() => {
-        router.push(`/jokes/search?query=${query}&lucky=true`);
+        const isTheQueryFullFilled = query !== '';
+
+        if (isTheQueryFullFilled) {
+            router.push(`/jokes/search?query=${query}&lucky=true`);
+        }
+
         dispatch(actions.handleLuckySubmit(query));
     }, [dispatch, query]);
 

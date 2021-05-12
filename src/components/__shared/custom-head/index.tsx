@@ -10,7 +10,6 @@ interface ICustomHead {
     host?: string;
 }
 
-// TODO - Add Open Graph meta-tags to allow sharing on social media, after receiving API data
 const CustomHead: FunctionComponent<ICustomHead> = ({ title = DEFAULT_TITLE, joke, host }): ReactElement => {
     return (
         <Head>
@@ -26,18 +25,18 @@ const CustomHead: FunctionComponent<ICustomHead> = ({ title = DEFAULT_TITLE, jok
             {joke && (
                 <>
                     <meta property="og:title" content={title}/>
-                    <meta property="og:description" content={joke?.value}/>
+                    <meta property="og:description" content={joke?.value} data-testid="og-meta"/>
                     <meta property="og:type" content="website"/>
                     <meta property="og:url" content={`${host}/jokes/search/${joke?.id}`} />
                     <meta property="og:image" content={`${host}/android-chrome-512x512.png`}/>
                 </>
             )}
 
-
-
             <link rel="preconnect" href="https://fonts.gstatic.com"/>
-            <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;1,200&display=swap"
-                  rel="stylesheet"/>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;1,200&display=swap"
+                rel="stylesheet"
+            />
         </Head>
     );
 };

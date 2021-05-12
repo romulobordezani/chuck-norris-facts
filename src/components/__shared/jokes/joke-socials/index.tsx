@@ -29,7 +29,6 @@ const JokeSocials: FunctionComponent<IJokeSocialsProps> = ({
                         <FontAwesomeIcon icon={faTwitter} width={26} /> Share on Twitter
                     </a>
                 </div>
-
             </>
         </div>
     );

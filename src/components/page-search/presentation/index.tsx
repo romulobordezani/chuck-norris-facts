@@ -8,7 +8,7 @@ import ErrorMessage from '../../__shared/error-message';
 import { ISearchPageProps } from '../../../pages/jokes/search';
 import EmptySearch from './empty-search';
 
-interface IPageSearchPresentationProps extends ISearchPageProps {
+export interface IPageSearchPresentationProps extends ISearchPageProps {
     currentQuery: IQuery;
     loading: boolean;
     data: IJoke[];

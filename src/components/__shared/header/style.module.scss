@@ -11,7 +11,7 @@
   width: 100%;
 
   @media only screen and (min-width: $large) {
-    background-size: 9%;
+    background-size: contain;
     background-position: bottom left;
     background-image: url("/chuck_norris_PNG19.png");
     background-repeat: no-repeat;

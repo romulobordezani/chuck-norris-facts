@@ -1,16 +1,12 @@
 import { combineReducers } from 'redux';
-
 import * as events from '../action-creators/redux-types';
 import { IJoke, IQuery } from '@types';
+import { getRandomItem } from '@utils';
 
 interface IReduxAction {
     type: string;
     payload?: any;
 }
-
-export const getRandomFact = (payload: IJoke[]): IJoke[] => {
-    return [payload[Math.floor(Math.random() * payload.length)]];
-};
 
 export const query = (state: IQuery = '', action: IReduxAction): IQuery => {
     switch (action.type) {
@@ -40,6 +36,7 @@ export const isALucky = (state = false, action: IReduxAction): boolean => {
         case events.USER_LUCKY_SUBMITTED:
             return true;
         case events.USER_SUBMITTED:
+        case events.USER_SUBMITTED_AN_EMPTY_VALUE:
             return false;
         default:
             return state;
@@ -51,7 +48,7 @@ export const data = (state: IJoke[] | null = null, action: IReduxAction): IJoke[
         case events.FETCH_SET:
             return [...action.payload];
         case events.FETCH_SET_LUCK:
-            return getRandomFact(action.payload);
+            return getRandomItem(action.payload);
         case events.FETCH_ERROR:
         case events.FETCH_LOADING:
         case events.USER_SUBMITTED_AN_EMPTY_VALUE:
@@ -93,7 +90,7 @@ export interface State {
     query: IQuery;
     isALucky: boolean;
     isAnEmpty: boolean;
-    data: IJoke[] | null,
+    data: IJoke[] | null;
     error: boolean;
     loading: boolean;
 }

@@ -25,6 +25,9 @@
       "@test": [
         "./test"
       ],
+      "@utils": [
+        "./components/__shared/utils"
+      ],
       "@services": [
         "./server/services"
       ]

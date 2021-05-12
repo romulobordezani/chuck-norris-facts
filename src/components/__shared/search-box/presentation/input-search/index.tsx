@@ -13,6 +13,7 @@ interface IInputSearch {
 const InputSearch: FunctionComponent<IInputSearch> = ({ query, setQuery }) => {
     return (
         <div className={styles.searchBox}>
+            {/* TODO - Would be nice to have an auto-complete here */}
             <input
                 type="search"
                 value={query}

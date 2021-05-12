@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 import { IJoke, IQuery } from '@types';
-import highLight from '../../utils/high-light';
+import { highLight } from '@utils';
 import styles from './style.module.scss';
 
 interface IJokeWithLinkProps {

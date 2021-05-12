@@ -1,9 +1,8 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-
-import { render } from '..';
-import SearchPage from '../../pages/jokes/search';
-import ProviderMock from '../ProviderMock';
+import { render } from '@test';
+import SearchPage from '../../../../pages/jokes/search';
+import ProviderMock from '../../../ProviderMock';
 
 describe('<HomePage />', () => {
   it('Should render as expected', async () => {

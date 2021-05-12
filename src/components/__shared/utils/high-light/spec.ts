@@ -1,4 +1,4 @@
-import highLight from './index';
+import highLight from '.';
 
 describe('highLight()', () => {
     describe('POSITIVE', () => {

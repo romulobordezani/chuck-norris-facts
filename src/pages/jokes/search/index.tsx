@@ -30,14 +30,28 @@ const SearchPage: FunctionComponent<ISearchPageProps> = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    try {
 
+    const emptyProps = {
+        props: {
+            initialResult: [],
+            initialQuery: context.query?.query || '',
+            initialLucky: null
+        }
+    };
+
+    try {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const isTheQueryTooShort = ('query' in context?.query && context?.query?.query?.length < 3);
+        const isAnEmptyQuery = ('query' in context?.query && context?.query?.query === '');
+
+        if (isAnEmptyQuery) {
+            return emptyProps;
+        }
 
         if (isTheQueryTooShort) {
-            throw new Error('search.query: size must be between 3 and 120');
+            console.error('search.query: size must be between 3 and 120');
+            return emptyProps;
         }
 
         const result = await axios.get(`${process.env.CHUCK_NORRIS_API_URL}/search?query=${context.query?.query}`);
@@ -50,15 +64,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             }
         };
     } catch(error) {
-        // TODO Replace with log4js, winston or whatever
+        // TODO Replace with log4js, winston or whatever in production
         console.error(error);
-        return {
-            props: {
-                initialResult: [],
-                initialQuery: context.query?.query || '',
-                initialLucky: null
-            }
-        };
+        return emptyProps;
     }
 };
 

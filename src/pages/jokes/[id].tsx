@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         const result = await axios.get(`${process.env.CHUCK_NORRIS_API_URL}/${context.params?.id}`);
         return { props: { joke: result.data, host: context.req.headers.host } };
     } catch(error) {
-        // TODO Replace with log4js or whatever
+        // TODO Replace with log4js or whatever in production
         console.error(error);
         return { props: { joke: null } };
     }
