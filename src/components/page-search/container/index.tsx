@@ -3,7 +3,7 @@ import PageSearchPresentation from '../presentation';
 import { useSelector } from 'react-redux';
 import { IRootState } from '../../../store';
 import { ISearchPageProps } from '../../../pages/jokes/search';
-import { isAnEmpty } from '../../__shared/search-box/reducers';
+import { IJoke } from '@types';
 
 const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
    initialResult = [],
@@ -13,13 +13,12 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
     const { data, loading, error, query, isALucky, isAnEmpty } = useSelector((state: IRootState) => state.search);
     
     const currentQuery = query;
-    const [joinedData, setJoinedData] = useState(initialResult);
+    const [joinedData, setJoinedData] = useState<IJoke[]>(initialResult);
     const hasNoContent = joinedData?.length === 0;
     const hasContent = joinedData?.length > 0;
 
     useEffect(() => {
-        const isAlreadySearchedOnClient = data?.length > 0;
-        if (isAlreadySearchedOnClient) {
+        if (data) {
             setJoinedData(data);
         }
     }, [data]);

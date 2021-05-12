@@ -1,20 +1,30 @@
 @import "/src/styles/colors";
+@import "/src/styles/breakpoints";
 
 .searchBox {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: $large) {
     flex-direction: row;
     align-items: center;
   }
 
   &__input {
+    width: 100%;
 
+    @media only screen and (min-width: $large) {
+      width: unset;
+    }
   }
 
   &__buttons {
-    margin: 0 2rem;
+    margin: 2rem 0 0;
+    width: 100%;
+
+    @media only screen and (min-width: $large) {
+      margin: 0 2rem;
+    }
   }
 }

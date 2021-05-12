@@ -1,5 +1,6 @@
 @import "/src/styles/colors";
 @import "/src/styles/measures";
+@import "/src/styles/breakpoints";
 
 .randomSearchButton {
   border: none;
@@ -10,6 +11,11 @@
   padding: 0.7rem 2rem;
   border-radius: $radiusButton;
   height: $buttonHeight;
+  width: 100%;
+
+  @media only screen and (min-width: $large) {
+    width: unset;
+  }
 
   svg {
     vertical-align: text-bottom;

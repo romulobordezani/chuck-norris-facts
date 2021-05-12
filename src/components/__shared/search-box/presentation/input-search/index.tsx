@@ -20,6 +20,7 @@ const InputSearch: FunctionComponent<IInputSearch> = ({ query, setQuery }) => {
                 className={styles.searchBox__input}
                 placeholder="Search"
                 minLength={3}
+                maxLength={120}
             />
             <button
                 type="submit"

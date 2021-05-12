@@ -22,7 +22,7 @@ const Results: FunctionComponent<IResultProps> = ({
             </h3>
             {result.map(joke => (
                 <JokeWithLink
-                    key={joke.id}
+                    key={joke?.id}
                     joke={joke}
                     query={query}
                 />

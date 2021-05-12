@@ -31,6 +31,15 @@ const SearchPage: FunctionComponent<ISearchPageProps> = ({
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     try {
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const isTheQueryTooShort = ('query' in context?.query && context?.query?.query?.length < 3);
+
+        if (isTheQueryTooShort) {
+            throw new Error('search.query: size must be between 3 and 120');
+        }
+
         const result = await axios.get(`${process.env.CHUCK_NORRIS_API_URL}/search?query=${context.query?.query}`);
 
         return {

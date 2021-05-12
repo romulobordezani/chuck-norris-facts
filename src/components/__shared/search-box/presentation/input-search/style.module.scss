@@ -1,9 +1,15 @@
 @import "/src/styles/colors";
 @import "/src/styles/measures";
+@import "/src/styles/breakpoints";
 
 .searchBox {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+
+  @media only screen and (min-width: $large) {
+    justify-content: unset;
+  }
 
   &__input {
     border: none;
@@ -14,7 +20,11 @@
     border-radius: $leftButton;
     height: 3rem;
     color: $paper;
-    width: 10rem;
+    width: 100%;
+
+    @media only screen and (min-width: $large) {
+      width: 16rem;
+    }
 
     &::placeholder {
       font-size: 1.2rem;

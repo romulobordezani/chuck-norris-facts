@@ -11,7 +11,7 @@
     "start": "next start",
     "lint": "eslint .",
     "prepare": "husky install",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests --coverage"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",

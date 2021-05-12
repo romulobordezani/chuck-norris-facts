@@ -1,24 +1,24 @@
 @import "/src/styles/colors";
+@import "/src/styles/breakpoints";
 
 .header {
   position: sticky;
   background-color: $darker-grey;
-  background-image: url("/chuck_norris_PNG19.png");
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 40%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
   padding: 3rem;
   top: 0;
   left: 0;
   width: 100%;
 
-  @media only screen and (min-width: 600px) {
-    background-size: contain;
+  @media only screen and (min-width: $large) {
+    background-size: 9%;
+    background-position: bottom left;
+    background-image: url("/chuck_norris_PNG19.png");
+    background-repeat: no-repeat;
   }
 
   &__searchBox {
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: $large) {
       margin-left: 16rem;
     }
   }

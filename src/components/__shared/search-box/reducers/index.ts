@@ -46,10 +46,10 @@ export const isALucky = (state = false, action: IReduxAction): boolean => {
     }
 };
 
-export const data = (state: IJoke[] = [], action: IReduxAction): IJoke[] => {
+export const data = (state: IJoke[] | null = null, action: IReduxAction): IJoke[] | null => {
     switch (action.type) {
         case events.FETCH_SET:
-            return action.payload;
+            return [...action.payload];
         case events.FETCH_SET_LUCK:
             return getRandomFact(action.payload);
         case events.FETCH_ERROR:
@@ -93,7 +93,7 @@ export interface State {
     query: IQuery;
     isALucky: boolean;
     isAnEmpty: boolean;
-    data: IJoke[] | [],
+    data: IJoke[] | null,
     error: boolean;
     loading: boolean;
 }
