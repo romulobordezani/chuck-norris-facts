@@ -6,6 +6,8 @@ module.exports = {
 	transform: {
 		'^.+\\.(ts|tsx)$': 'babel-jest',
 	},
+	collectCoverage: true,
+	coverageReporters: ['json', 'html'],
 	watchPlugins: [
 		'jest-watch-typeahead/filename',
 		'jest-watch-typeahead/testname',
