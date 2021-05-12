@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import React, { Dispatch, FunctionComponent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { IQuery } from '../../../../../../types';
+import { IQuery } from '@types';
 
 import styles from './style.module.scss';
 
 interface IInputSearch {
     query: IQuery;
-    setQuery(query: IQuery): void;
+    setQuery: Dispatch<IQuery>;
 }
 
 const InputSearch: FunctionComponent<IInputSearch> = ({ query, setQuery }) => {
@@ -19,6 +19,7 @@ const InputSearch: FunctionComponent<IInputSearch> = ({ query, setQuery }) => {
                 onChange={event => setQuery(event.target.value)}
                 className={styles.searchBox__input}
                 placeholder="Search"
+                minLength={3}
             />
             <button
                 type="submit"

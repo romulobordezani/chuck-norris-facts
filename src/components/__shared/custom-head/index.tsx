@@ -6,8 +6,8 @@ const DEFAULT_TITLE = 'Chuck Norris Facts';
 
 interface ICustomHead {
     title?: string;
-    joke: IJoke;
-    host: string;
+    joke?: IJoke;
+    host?: string;
 }
 
 // TODO - Add Open Graph meta-tags to allow sharing on social media, after receiving API data
@@ -39,8 +39,7 @@ const CustomHead: FunctionComponent<ICustomHead> = ({ title = DEFAULT_TITLE, jok
             <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;1,200&display=swap"
                   rel="stylesheet"/>
         </Head>
-    )
-
+    );
 };
 
 export default CustomHead;

@@ -15,7 +15,7 @@ const ChuckNorrisApp = ({ Component, pageProps }: AppProps): JSX.Element => {
             { /* eslint-disable-next-line react/jsx-props-no-spreading -- Next.js needs this spread */}
             <Component {...pageProps} />
         </Provider>
-    )
+    );
 };
 
 export default ChuckNorrisApp;

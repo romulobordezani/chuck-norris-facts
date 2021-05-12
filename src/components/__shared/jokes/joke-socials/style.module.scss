@@ -1,0 +1,23 @@
+@import "/src/styles/colors";
+@import "/src/styles/mixins";
+
+.joke {
+  @include card-board;
+
+  &__text {
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+  }
+
+  &__twitterButton {
+    color: $turquoise;
+    font-size: 1.1rem;
+    margin: 2rem 0  0!important;
+
+    svg {
+      vertical-align: text-bottom;
+    }
+  }
+
+}

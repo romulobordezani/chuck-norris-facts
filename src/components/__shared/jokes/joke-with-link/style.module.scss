@@ -1,19 +1,9 @@
 @import "/src/styles/colors";
+@import "/src/styles/mixins";
 
 .joke {
-  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.5);
-  margin: 3rem 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.5rem;
-  border-radius: 0.4rem;
-  transition: all 0.5s linear;
-
-  &.self {
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 4px 4px 0 rgba(0,0,0,0.5);
-    }
-  }
+  @include card-board;
+  padding: 0;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -21,10 +11,10 @@
   }
 
   > a, > div {
-    padding: 3rem;
     display: block;
     height: 100%;
     white-space: pre-wrap;
+    padding: 3rem;
 
     mark {
       background: $turquoise;
@@ -54,15 +44,4 @@
       content: " [highlight end] ";
     }
   }
-
-  &__twitterButton {
-    color: $turquoise;
-    font-size: 1.1rem;
-    padding: 0 3rem 3rem!important ;
-
-    svg {
-      vertical-align: text-bottom;
-    }
-  }
-
 }

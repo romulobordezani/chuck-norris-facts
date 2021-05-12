@@ -16,7 +16,7 @@ const JokePage: FunctionComponent<IJokePageProps> = ({ joke, host }) => {
             <CustomHead {...{ joke, host }} />
             <PageJokeContainer {...{ joke, host }} />
         </>
-    )
+    );
 };
 
 /**
@@ -33,6 +33,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         console.error(error);
         return { props: { joke: null } };
     }
-}
+};
 
 export default JokePage;

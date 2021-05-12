@@ -1,3 +1,14 @@
+@import "/src/styles/colors";
+
 .results {
   padding: 2rem;
+  background-image: url("/bg.png");
+  background-position: top right;
+  background-repeat: no-repeat;
+  min-height: 60%;
+
+  &__amount {
+    font-weight: bolder;
+    color: $coral;
+  }
 }

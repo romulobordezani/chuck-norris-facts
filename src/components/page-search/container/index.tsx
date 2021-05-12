@@ -1,47 +1,43 @@
-import { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import PageSearchPresentation from '../presentation';
-import { useRouter } from 'next/router';
-import { searchForJokes } from '../action-creators';
-import { useSelector, useDispatch } from 'react-redux';
-import { IQuery } from '@types';
+import { useSelector } from 'react-redux';
 import { IRootState } from '../../../store';
+import { ISearchPageProps } from '../../../pages/jokes/search';
+import { isAnEmpty } from '../../__shared/search-box/reducers';
 
-const SearchContainer: FunctionComponent = () => {
-    const dispatch = useDispatch();
-    const router = useRouter();
-    const { data, loading, error } = useSelector((state: IRootState) => state.search)
-
-    const [currentQuery, setCurrentQuery] = useState<IQuery>('');
-    const hasNoContent = data?.length === 0;
-    const hasContent = data?.length > 0;
-
-    const fetch = useCallback((query: IQuery, luck?: boolean) => {
-        router.push(`/jokes/search?query=${query}`);
-        setCurrentQuery(query);
-        dispatch(searchForJokes(query, luck));
-    }, [dispatch]);
+const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
+   initialResult = [],
+   initialQuery,
+   initialLucky
+}) => {
+    const { data, loading, error, query, isALucky, isAnEmpty } = useSelector((state: IRootState) => state.search);
+    
+    const currentQuery = query;
+    const [joinedData, setJoinedData] = useState(initialResult);
+    const hasNoContent = joinedData?.length === 0;
+    const hasContent = joinedData?.length > 0;
 
     useEffect(() => {
-        if(router.isReady) {
-            const { query } = router.query;
-            if (query) {
-                fetch(query);
-                setCurrentQuery(query);
-            }
+        const isAlreadySearchedOnClient = data?.length > 0;
+        if (isAlreadySearchedOnClient) {
+            setJoinedData(data);
         }
-    }, [router.isReady]);
+    }, [data]);
 
     return (
-       <PageSearchPresentation {...{
-           fetch,
-           data,
+       <PageSearchPresentation data={joinedData} {...{
            loading,
            hasNoContent,
            hasContent,
            currentQuery,
-           error
+           initialQuery,
+           initialResult,
+           initialLucky,
+           error,
+           isALucky,
+           isAnEmpty
        }} />
-    )
-}
+    );
+};
 
-export default SearchContainer;
+export default PageSearchContainer;

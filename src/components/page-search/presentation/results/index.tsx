@@ -1,26 +1,34 @@
 import React, { FunctionComponent } from 'react';
-import { IJoke } from '../../../../types';
+import { IJoke, IQuery } from '@types';
 
-import Joke from '../../../__shared/joke';
 import styles from './style.module.scss';
+import JokeWithLink from '../../../__shared/jokes/joke-with-link';
 
 interface IResultProps {
     result: IJoke[];
-    query: string | string[];
+    query: IQuery;
+    isALucky: boolean;
 }
 
-const Results: FunctionComponent<IResultProps> = ({ result, query }) => {
+const Results: FunctionComponent<IResultProps> = ({
+      result,
+      query ,
+      isALucky
+}) => {
     return (
         <div className={styles.results}>
+            <h3>
+                About <span className={styles.results__amount}>{result?.length}</span> {isALucky && 'lucky '} results
+            </h3>
             {result.map(joke => (
-                <Joke
+                <JokeWithLink
                     key={joke.id}
                     joke={joke}
                     query={query}
                 />
             ))}
         </div>
-    )
-}
+    );
+};
 
 export default Results;

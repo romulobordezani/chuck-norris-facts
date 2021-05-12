@@ -12,7 +12,7 @@ import ExceptionHandler from '../exception-handler';
 const DEFAULT_AXIOS_CONFIG: AxiosRequestConfig = {
     baseURL: process.env.CHUCK_NORRIS_API_URL,
     timeout: 30000
-}
+};
 
 class Gateway {
     public axios: AxiosInstance;

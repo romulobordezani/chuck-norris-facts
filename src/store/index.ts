@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import {
 	reducer as search,
 	State as SearchState
-} from '../components/page-search';
+} from '../components/__shared/search-box';
 
 export interface IRootState {
 	search: SearchState

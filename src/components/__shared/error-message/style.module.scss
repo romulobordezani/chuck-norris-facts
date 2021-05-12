@@ -1,23 +1,14 @@
-@import "/src/styles/colors";
 @import "/src/styles/mixins";
 
-.highlight {
-  color: $mantis;
-}
-
-.results {
+.error {
   padding: 2rem;
   background-image: url("/bg.png");
   background-position: top right;
   background-repeat: no-repeat;
   min-height: 60%;
 
-  &__joke {
+  &__message {
     @include card-board;
   }
 
-  &__amount {
-    font-weight: bolder;
-    color: $coral;
-  }
 }

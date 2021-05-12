@@ -2,4 +2,4 @@
 **/out/*
 **/.next/*
 jest.config.js
-test/*
+/src/test/index.ts

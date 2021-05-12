@@ -2,11 +2,11 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 
 import { render } from '..';
-import HomePage from '../../pages/jokes/search';
+import SearchPage from '../../pages/jokes/search';
 
 describe('<HomePage />', () => {
   it('Should render as expected', async () => {
-    render(<HomePage />, {});
+    render(<SearchPage />, {});
     const elementWithExpectedText = await screen.findAllByText('Pesquisar');
     expect(elementWithExpectedText).toHaveLength(1);
   });

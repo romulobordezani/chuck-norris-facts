@@ -1,31 +1,35 @@
-import React, { FunctionComponent } from 'react';
-import { IJoke, IQuery } from '@types';
+import React, { FunctionComponent, ReactElement } from 'react';
+import { IJoke } from '@types';
 
-import Joke from '../../__shared/joke';
-import ChuckAintAccomplishedItYet from '../../page-search/presentation/not-found-joke';
-import Header from '../../__shared/header/presentation';
+import JokeSocials from '../../__shared/jokes/joke-socials';
+import JokeNotFound from '../../__shared/jokes/joke-not-found';
+import Header from '../../__shared/header';
 import styles from './style.module.scss';
 
 export interface IPageJokePresentation {
-    fetch(query: IQuery);
     joke: IJoke;
     host: string;
 }
 
-const PageJokePresentation: FunctionComponent<IPageJokePresentation> = ({ fetch, joke, host }) => {
+const PageJokePresentation: FunctionComponent<IPageJokePresentation> = ({
+    joke,
+    host
+}): ReactElement => {
     return (
         <>
-            <Header fetch={fetch} />
+            <Header initialQuery="" />
             {joke && (
                 <div className={styles.jokeContainer}>
-                    <Joke {...{ joke, host }} />
+                    <JokeSocials {...{ joke, host }} />
                 </div>
             )}
             {!joke && (
-                <ChuckAintAccomplishedItYet />
+                <div className={styles.jokeContainer}>
+                    <JokeNotFound />
+                </div>
             )}
         </>
-    )
-}
+    );
+};
 
 export default PageJokePresentation;

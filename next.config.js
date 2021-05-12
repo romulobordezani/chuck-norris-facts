@@ -6,6 +6,6 @@ module.exports = {
                 destination: '/jokes/search',
                 permanent: true
             }
-        ]
+        ];
     }
-}
+};
