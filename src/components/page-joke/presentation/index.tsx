@@ -7,8 +7,8 @@ import Header from '../../__shared/header';
 import styles from './style.module.scss';
 
 export interface IPageJokePresentation {
-    joke: IJoke;
-    host: string;
+    joke: IJoke | null;
+    host?: string;
 }
 
 const PageJokePresentation: FunctionComponent<IPageJokePresentation> = ({

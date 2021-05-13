@@ -26,6 +26,7 @@ class Gateway {
             ...merge(DEFAULT_AXIOS_CONFIG, config)
         });
 
+        /* istanbul ignore next -- Interceptor available only in a real request */
         this.axios.interceptors.response.use((response: AxiosResponse) => {
             res.json(response.data);
             return response;

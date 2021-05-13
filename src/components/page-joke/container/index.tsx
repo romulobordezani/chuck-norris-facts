@@ -3,8 +3,8 @@ import { FunctionComponent } from 'react';
 import { IJoke } from '@types';
 
 export interface IPageJokeContainerProps {
-    joke: IJoke;
-    host: string;
+    joke: IJoke | null;
+    host?: string;
 }
 
 const PageJokeContainer: FunctionComponent<IPageJokeContainerProps> = ({ joke, host }) => {

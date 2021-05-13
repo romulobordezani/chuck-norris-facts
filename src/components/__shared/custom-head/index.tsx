@@ -6,7 +6,7 @@ const DEFAULT_TITLE = 'Chuck Norris Facts';
 
 interface ICustomHead {
     title?: string;
-    joke?: IJoke;
+    joke?: IJoke | null;
     host?: string;
 }
 

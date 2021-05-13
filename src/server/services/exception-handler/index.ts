@@ -6,7 +6,7 @@ import {
 	NotFoundError,
 	TimeoutError,
 	UnauthorizedError
-} from '../exceptions';
+} from './exceptions';
 import { AxiosError } from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -14,12 +14,12 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const log = console;
 
 // TODO - Improve this method to show details of the external call, but only in the logs for monitoring
-const getMeaningFullError = (error: AxiosError<any>) =>	`${error.message}`;
+const getMeaningFullError = (message: string) => message;
 
 class ExceptionHandler {
 	static cleanErrorMessage(message = ''): string {
 		// eslint-disable-next-line no-control-regex
-		return message.replace(/\u001b\[31m|\u001b\[39m/g, '');
+		return message.replace(/\u001b[^m]*?m/g, '');
 	}
 
 	static execute(
@@ -40,7 +40,7 @@ class ExceptionHandler {
 		error: AxiosError
 	): void {
 		const { constructor: errorType, message } = error;
-		const { cleanErrorMessage: clean } = ExceptionHandler;
+		const clean = ExceptionHandler.cleanErrorMessage;
 
 		switch (errorType) {
 			case ValidationError:
@@ -80,8 +80,8 @@ class ExceptionHandler {
 				break;
 
 			case TimeoutError:
-				log.error(`Timeout occurred: ${clean(message)}`);
-				res.status(401);
+				log.error(`Timeout occurred`);
+				res.status(500);
 				res.json({
 					message: clean(message),
 					response: error.response
@@ -89,7 +89,7 @@ class ExceptionHandler {
 				break;
 
 			case FormError:
-				log.error(`Form Validation Error occurred: ${clean(message)}`);
+				log.error(`Form Validation Error occurred`);
 				/*
 					Status 412 (Precondition Failed) is an *exotic work around to send form Errors from back-ends,
 					allowing full control of the field in the front-end, sending errors and values to specific fields.
@@ -115,19 +115,11 @@ class ExceptionHandler {
 		res: NextApiResponse,
 		error: AxiosError
 	): void {
-		let errorCode;
-		let responseData = null;
-
-		if ('response' in error && error?.response) {
-			errorCode = error?.response?.status;
-		}
+		let errorCode = error?.response?.status;
+		const responseData = error?.response?.data;
 
 		if ('code' in error && error?.code === 'ECONNABORTED') {
-			errorCode = 'TIMEOUT';
-		}
-
-		if (error && error.response && error?.response?.data) {
-			responseData = error?.response?.data;
+			errorCode = 666;
 		}
 
 		const responseDataFields =
@@ -138,33 +130,33 @@ class ExceptionHandler {
 		switch (errorCode) {
 			case 400:
 				throw new ValidationError(
-					getMeaningFullError(error),
+					getMeaningFullError(responseData),
 					responseData
 				);
 			case 404:
 				throw new NotFoundError(
-					getMeaningFullError(error),
+					getMeaningFullError(responseData),
 					responseData
 				);
 			case 403:
 				throw new ForbiddenError(
-					getMeaningFullError(error),
+					getMeaningFullError(responseData),
 					responseData
 				);
 			case 401:
 				throw new UnauthorizedError(
-					getMeaningFullError(error),
+					getMeaningFullError(responseData),
 					responseData
 				);
 			case 412:
 				throw new FormError(
-					getMeaningFullError(error),
+					getMeaningFullError(''),
 					responseDataFields
 				);
-			case 'TIMEOUT':
-				throw new TimeoutError(getMeaningFullError(error));
+			case 666:
+				throw new TimeoutError(getMeaningFullError(''));
 			default:
-				throw new GenericError(getMeaningFullError(error), responseData);
+				throw new GenericError(getMeaningFullError(responseData), responseData);
 		}
 	}
 }

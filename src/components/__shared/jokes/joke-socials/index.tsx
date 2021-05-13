@@ -16,20 +16,18 @@ const JokeSocials: FunctionComponent<IJokeSocialsProps> = ({
 }) => {
     return (
         <div className={styles.joke}>
-            <>
-                <div className={styles.joke__text}>
-                    {joke?.value}
-                </div>
-                <div className={styles.joke__twitterButton}>
-                    <a
-                        href={`https://twitter.com/intent/tweet?text=http://${host}/jokes/${joke?.id}`}
-                        target="_BLANK"
-                        rel="noreferrer"
-                    >
-                        <FontAwesomeIcon icon={faTwitter} width={26} /> Share on Twitter
-                    </a>
-                </div>
-            </>
+            <div className={styles.joke__text}>
+                {joke?.value}
+            </div>
+            <div className={styles.joke__twitterButton}>
+                <a
+                    href={`https://twitter.com/intent/tweet?text=http://${host}/jokes/${joke?.id}`}
+                    target="_BLANK"
+                    rel="noreferrer"
+                >
+                    <FontAwesomeIcon icon={faTwitter} width={26} /> Share on Twitter
+                </a>
+            </div>
         </div>
     );
 };

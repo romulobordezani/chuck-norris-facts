@@ -2,12 +2,14 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import axios from 'axios';
+import store from '../store';
+
 axios.defaults.baseURL = process.env.CHUCK_NORRIS_API_URL;
 
 import '../styles/normalize.scss';
 import '../styles/globals.scss';
 import '../styles/animated-loading.scss';
-import store from '../store';
+
 
 const ChuckNorrisApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     return (

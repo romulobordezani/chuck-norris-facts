@@ -6,7 +6,7 @@ import CustomHead from '../../components/__shared/custom-head';
 import { PageJokeContainer } from '../../components/page-joke';
 
 interface IJokePageProps {
-    joke: IJoke;
+    joke: IJoke | null;
     host: string;
 }
 

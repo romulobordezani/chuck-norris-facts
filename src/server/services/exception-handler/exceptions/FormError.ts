@@ -1,4 +1,4 @@
-import { IFormField } from '../../../types';
+import { IFormField } from '@types';
 
 class FormError extends Error {
 	private fields: IFormField[];
