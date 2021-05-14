@@ -1,9 +1,9 @@
+import { FormEvent } from 'react';
 import { AnyAction } from 'redux';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import * as events from './redux-types';
 import axios from 'axios';
 import { IJoke, IQuery } from '@types';
-import { FormEvent } from 'react';
 
 export interface IAction {
     type: string;
@@ -62,7 +62,7 @@ export const searchForJokes: ISearchForJokes = (query) =>
                 { params: { query } }
             );
 
-            dispatch(fetchSet(result.data.result));
+            dispatch(fetchSet(result?.data?.result));
         } catch(error) {
             dispatch(fetchError());
             console.error(error);
@@ -79,7 +79,7 @@ export const searchForALuckyJoke: ISearchForJokes = (query: IQuery) =>
                 { params: { query } }
             );
 
-            dispatch(fetchSetLuck(result.data.result));
+            dispatch(fetchSetLuck(result?.data?.result));
         } catch(error) {
             dispatch(fetchError());
             console.error(error);

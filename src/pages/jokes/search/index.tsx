@@ -6,15 +6,21 @@ import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { IJoke, IQuery } from '@types';
 
+
+
 export interface ISearchPageProps {
     initialResult?: IJoke[] | [],
     initialQuery?: IQuery,
-    initialLucky?: boolean
+    initialLucky?: boolean | null
+}
+
+export interface IEmptyProps {
+    props: ISearchPageProps
 }
 
 const SearchPage: FunctionComponent<ISearchPageProps> = ({
     initialResult,
-    initialQuery,
+    initialQuery = '',
     initialLucky
 }): ReactElement => {
     return (
@@ -31,7 +37,7 @@ const SearchPage: FunctionComponent<ISearchPageProps> = ({
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
-    const emptyProps = {
+    const emptyProps: IEmptyProps = {
         props: {
             initialResult: [],
             initialQuery: context.query?.query || '',
@@ -40,14 +46,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
 
     try {
+        const isAnEmptyQuery = !('query' in context?.query) || context?.query?.query === '';
+
+        if (isAnEmptyQuery) {
+            delete emptyProps?.props?.initialQuery;
+            return emptyProps;
+        }
+
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const isTheQueryTooShort = ('query' in context?.query && context?.query?.query?.length < 3);
-        const isAnEmptyQuery = ('query' in context?.query && context?.query?.query === '');
-
-        if (isAnEmptyQuery) {
-            return emptyProps;
-        }
 
         if (isTheQueryTooShort) {
             console.error('search.query: size must be between 3 and 120');
@@ -58,8 +66,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
         return {
             props: {
-                initialResult: result?.data?.result || [],
-                initialQuery: context.query?.query || '',
+                initialResult: result?.data?.result,
+                initialQuery: context.query?.query,
                 initialLucky: context.query?.lucky || null
             }
         };

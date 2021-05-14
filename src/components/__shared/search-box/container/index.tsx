@@ -4,9 +4,12 @@ import { IQuery } from '@types';
 import * as actions from '../action-creators';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import { ISearchPageProps } from '../../../../pages/jokes/search';
 
-const SearchBoxContainer: FunctionComponent<ISearchPageProps> = ({
+export interface ISearchBoxContainerProps {
+    initialQuery: IQuery;
+}
+
+const SearchBoxContainer: FunctionComponent<ISearchBoxContainerProps> = ({
     initialQuery
 }) => {
     const router = useRouter();

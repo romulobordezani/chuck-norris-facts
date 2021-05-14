@@ -26,7 +26,9 @@ const InputSearch: FunctionComponent<IInputSearch> = ({ query, setQuery }) => {
             <button
                 type="submit"
                 className={styles.searchBox__submit}
+                role="button"
             >
+                Search
                 <FontAwesomeIcon icon={faSearch} width={26} />
             </button>
         </div>

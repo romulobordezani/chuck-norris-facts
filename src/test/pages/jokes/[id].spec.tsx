@@ -5,11 +5,11 @@ import JokePage from '../../../pages/jokes/[id]';
 import ProviderMock from '../../ProviderMock';
 import jokeMock from '../../../components/__shared/__mocks__/joke.mock.json';
 
-describe('<HomePage />', () => {
+describe('<JokePage />', () => {
   it('Should render as expected', async () => {
     render((
         <ProviderMock>
-          <JokePage  host="host.com" joke={jokeMock}/>
+          <JokePage host="host.com" joke={jokeMock}/>
         </ProviderMock>
     ), {});
     const elementWithExpectedText = await screen.findAllByText(jokeMock.value);

@@ -14,6 +14,7 @@ const RandomSearchButton: FunctionComponent<IRandomSearchButton> = ({ handleLuck
             className={styles.randomSearchButton}
             onClick={() => { handleLuckySubmit(); } }
             type="button"
+            role="button"
         >
             <FontAwesomeIcon icon={faHatCowboy} width={26} />{'  '}
             LUCKY
