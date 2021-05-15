@@ -10,7 +10,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 150px;
+  height: $headerHeight;
+  min-height: 150px;
   padding: 1rem;
   background-image: url("/chuck_norris_PNG19.png");
   background-size: 50%;
@@ -20,7 +21,6 @@
   @include breakpoint($bp__medium-up) {
     background-size: contain;
     background-position: bottom left;
-    background-image: url("/chuck_norris_PNG19.png");
     height: $headerHeight;
     justify-content: space-between;
   }
@@ -38,9 +38,5 @@
 
   }
 
-  &__searchBox {
-    @include breakpoint($bp__medium-up) {
-
-    }
-  }
+  &__searchBox {}
 }

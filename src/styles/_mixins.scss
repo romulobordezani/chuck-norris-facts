@@ -3,7 +3,7 @@
 @mixin card-board {
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.5);
   margin: 2rem 0;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(45, 52, 61);
   padding: 1rem;
   border-radius: 0.4rem;
   transition: all 0.5s linear;
@@ -11,15 +11,44 @@
   @include breakpoint($bp__medium-up) {
     padding: 3rem;
   }
+
+  mark {
+    background: $coral;
+    border-radius: 0.2rem;
+    text-shadow: none;
+    padding: 0.1rem;
+  }
+
+  /*
+    Important for accessibility
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark#accessibility_concerns
+  */
+  mark::before,
+  mark::after {
+    clip-path: inset(100%);
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  mark::before {
+    content: " [highlight start] ";
+  }
+
+  mark::after {
+    content: " [highlight end] ";
+  }
 }
 
 @mixin result {
   padding: 1rem;
-  background-image: url("/bg.png");
-  background-position: top right;
-  background-repeat: no-repeat;
-  background-size: 15%;
-  background-attachment: fixed;
+
+  h3 {
+    text-shadow: 2px 2px 8px $darker-grey;
+  }
 
   @include breakpoint($bp__medium-up) {
     padding: 2rem;

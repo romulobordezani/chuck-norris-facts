@@ -4,7 +4,7 @@
   https://codepen.io/dfitzy/pen/XdaoWg
 */
 
-@import "colors";
+@import "exporter";
 $accentColor: $lighter-grey;
 $fontSizeToResponsiveness: 16px;
 
@@ -15,6 +15,10 @@ $fontSizeToResponsiveness: 16px;
   height: 120px;
   width: 120px;
   font-size: $fontSizeToResponsiveness;
+
+  @include breakpoint($bp__landscape) {
+    display: none;
+  }
 }
 
 .loader:before {

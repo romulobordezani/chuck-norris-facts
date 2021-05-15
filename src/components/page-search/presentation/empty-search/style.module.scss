@@ -1,9 +1,5 @@
 @import "/src/styles/exporter";
 
-.highlight {
-  color: $mantis;
-}
-
 .results {
   @include result;
 

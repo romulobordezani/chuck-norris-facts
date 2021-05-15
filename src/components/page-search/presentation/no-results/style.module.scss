@@ -1,18 +1,19 @@
 @import "/src/styles/exporter";
 
-.highlight {
-  color: $mantis;
-}
-
 .results {
   @include result;
-
-  &__joke {
-    @include card-board;
-  }
+  height: 100%;
 
   &__amount {
     font-weight: bolder;
     color: $coral;
+  }
+
+  &__joke {
+    @include card-board;
+
+    &_m_highlight {
+      color: $mantis;
+    }
   }
 }
