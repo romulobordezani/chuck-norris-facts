@@ -3,13 +3,24 @@ import { SearchBoxContainer } from '../search-box';
 import styles from './style.module.scss';
 import { ISearchPageProps } from '../../../pages/jokes/search';
 
-const Header: FunctionComponent<ISearchPageProps> = ({
+export interface IHeaderProps extends ISearchPageProps{
+    resetState(): void;
+}
+
+const Header: FunctionComponent<IHeaderProps> = ({
      initialResult,
      initialQuery,
-     initialLucky
+     initialLucky,
+     resetState
 }) => {
     return (
         <header className={styles.header} data-testid="header-component">
+            <div
+                className={styles.header__home}
+                role="button"
+                onClick={resetState}
+                data-testid="home-button"
+            />
             <div className={styles.header__searchBox}>
                 <SearchBoxContainer {...{
                     initialResult,

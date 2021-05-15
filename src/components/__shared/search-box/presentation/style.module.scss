@@ -1,29 +1,29 @@
-@import "/src/styles/colors";
-@import "/src/styles/breakpoints";
+@import "/src/styles/exporter";
 
 .searchBox {
   display: flex;
-  align-items: flex-end;
   flex-direction: column;
+  align-items: center;
 
-  @media only screen and (min-width: $large) {
+  @include breakpoint($bp__medium-up) {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
   }
 
   &__input {
+    margin: 0.5rem 0 0;
     width: 100%;
 
-    @media only screen and (min-width: $large) {
+    @include breakpoint($bp__medium-up) {
       width: unset;
     }
   }
 
   &__buttons {
-    margin: 2rem 0 0;
+    margin: 0.5rem 0 0;
     width: 100%;
 
-    @media only screen and (min-width: $large) {
+    @include breakpoint($bp__medium-up) {
       margin: 0 2rem;
     }
   }

@@ -31,7 +31,7 @@ const Results: FunctionComponent<IResultProps> = ({
                 </h3>
             )}
 
-            {result.map(joke => (
+            {result?.map(joke => (
                 <JokeWithLink
                     key={joke?.id}
                     joke={joke}

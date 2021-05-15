@@ -1,16 +1,11 @@
-@import "/src/styles/colors";
-@import "/src/styles/mixins";
+@import "/src/styles/exporter";
 
 .highlight {
   color: $mantis;
 }
 
 .results {
-  padding: 2rem;
-  background-image: url("/bg.png");
-  background-position: top right;
-  background-repeat: no-repeat;
-  min-height: 60%;
+  @include result;
 
   &__joke {
     @include card-board;

@@ -61,6 +61,28 @@ describe('Search Page => getServerSideProps', () => {
             ));
     });
 
+    it('Should get expected successful response from API and pass as props', async () => {
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        axios.get = jest.fn(() =>
+            Promise.resolve({ data: { result : [jokeMock] } }));
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const response = await getServerSideProps(runningContext);
+
+        expect(response).toEqual(
+            expect.objectContaining({
+                    props: {
+                        initialResult: [jokeMock],
+                        initialQuery: runningContext?.query?.query,
+                        initialLucky: null
+                    }
+                }
+            ));
+    });
+
 
     it('Should send good props when errored', async () => {
         axios.get = jest.fn(() => Promise.reject('No results'));

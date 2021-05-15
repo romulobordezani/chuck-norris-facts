@@ -13,6 +13,7 @@ export const query = (state: IQuery = '', action: IReduxAction): IQuery => {
         case events.USER_SUBMITTED:
             return action.payload;
         case events.USER_SUBMITTED_AN_EMPTY_VALUE:
+        case events.USER_RESETED:
             return '';
         default:
             return state;
@@ -25,6 +26,7 @@ export const isAnEmpty = (state = false, action: IReduxAction): boolean => {
             return true;
         case events.USER_SUBMITTED:
         case events.USER_LUCKY_SUBMITTED:
+        case events.USER_RESETED:
             return false;
         default:
             return state;
@@ -37,13 +39,14 @@ export const isALucky = (state = false, action: IReduxAction): boolean => {
             return true;
         case events.USER_SUBMITTED:
         case events.USER_SUBMITTED_AN_EMPTY_VALUE:
+        case events.USER_RESETED:
             return false;
         default:
             return state;
     }
 };
 
-export const data = (state: IJoke[] | null = null, action: IReduxAction): IJoke[] | null => {
+export const data = (state: IJoke[] = [], action: IReduxAction): IJoke[] | [] => {
     switch (action.type) {
         case events.FETCH_SET:
             return [...action.payload];
@@ -52,6 +55,8 @@ export const data = (state: IJoke[] | null = null, action: IReduxAction): IJoke[
         case events.FETCH_ERROR:
         case events.FETCH_LOADING:
         case events.USER_SUBMITTED_AN_EMPTY_VALUE:
+            return [];
+        case events.USER_RESETED:
             return [];
         default:
             return state;
@@ -66,6 +71,7 @@ export const loading = (state = false, action: IReduxAction): boolean => {
         case events.FETCH_SET_LUCK:
         case events.FETCH_ERROR:
         case events.USER_SUBMITTED_AN_EMPTY_VALUE:
+        case events.USER_RESETED:
             return false;
         default:
             return state;
@@ -80,6 +86,7 @@ export const error = (state = false, action: IReduxAction): boolean => {
         case events.FETCH_SET_LUCK:
         case events.FETCH_LOADING:
         case events.USER_SUBMITTED_AN_EMPTY_VALUE:
+        case events.USER_RESETED:
             return false;
         default:
             return state;
@@ -90,7 +97,7 @@ export interface State {
     query: IQuery;
     isALucky: boolean;
     isAnEmpty: boolean;
-    data: IJoke[] | null;
+    data: IJoke[] | [];
     error: boolean;
     loading: boolean;
 }

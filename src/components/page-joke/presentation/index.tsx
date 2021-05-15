@@ -9,15 +9,17 @@ import styles from './style.module.scss';
 export interface IPageJokePresentation {
     joke: IJoke | null;
     host?: string;
+    resetState(): void;
 }
 
 const PageJokePresentation: FunctionComponent<IPageJokePresentation> = ({
     joke,
-    host
+    host,
+    resetState
 }): ReactElement => {
     return (
         <>
-            <Header initialQuery="" />
+            <Header initialQuery="" resetState={resetState} />
             {joke && (
                 <div className={styles.jokeContainer}>
                     <JokeSocials {...{ joke, host }} />

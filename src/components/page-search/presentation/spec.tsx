@@ -17,7 +17,8 @@ const defaultPropsWithContent: IPageSearchPresentationProps = {
     hasNoContent: false,
     error: false,
     isALucky: false,
-    isAnEmpty: false
+    isAnEmpty: false,
+    resetState: jest.fn()
 };
 
 describe('<PageSearchPresentation />', () => {

@@ -6,6 +6,7 @@
 
 @import "colors";
 $accentColor: $lighter-grey;
+$fontSizeToResponsiveness: 16px;
 
 .loader {
   animation: spin 1.5s linear alternate infinite;
@@ -13,6 +14,7 @@ $accentColor: $lighter-grey;
   border-radius: 50%;
   height: 120px;
   width: 120px;
+  font-size: $fontSizeToResponsiveness;
 }
 
 .loader:before {
@@ -23,6 +25,7 @@ $accentColor: $lighter-grey;
   height: 0.5em;
   width: 0.5em;
   z-index: 2;
+  font-size: $fontSizeToResponsiveness;
 }
 
 .loader:after {
@@ -44,6 +47,7 @@ $accentColor: $lighter-grey;
   display: block;
   height: 2em;
   width: 2em;
+  font-size: $fontSizeToResponsiveness;
 }
 
 .inner {
@@ -53,6 +57,7 @@ $accentColor: $lighter-grey;
   height: 1.75em;
   width: 1.75em;
   z-index: 1;
+  font-size: $fontSizeToResponsiveness;
 }
 
 .loader:before, .loader:after, .inner {
@@ -62,6 +67,7 @@ $accentColor: $lighter-grey;
   position: absolute;
   right: 0;
   top: 0;
+  font-size: $fontSizeToResponsiveness;
 }
 
 @keyframes load {

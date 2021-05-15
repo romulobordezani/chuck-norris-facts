@@ -1,4 +1,4 @@
-@import "colors";
+@import "exporter";
 
 html,
 body {
@@ -6,8 +6,24 @@ body {
   margin: 0;
   font-family: 'Karla', sans-serif;
   background: $darker-grey;
+
+
   color: $paper;
   height: 100%;
+}
+
+html {
+  font-size: 3.5vw;
+
+  @include breakpoint($bp__medium-only) {
+    overflow-y: scroll;
+    font-size: 2vw;
+  }
+
+  @include breakpoint($bp__large-up) {
+    overflow-y: scroll;
+    font-size: 1vw;
+  }
 }
 
 body > div {

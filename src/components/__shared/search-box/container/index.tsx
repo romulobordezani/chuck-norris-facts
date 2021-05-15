@@ -1,5 +1,5 @@
 import SearchBoxPresentation from '../presentation';
-import { FormEvent, FunctionComponent, useCallback, useState } from 'react';
+import React, { FormEvent, FunctionComponent, useCallback, useEffect, useState } from 'react';
 import { IQuery } from '@types';
 import * as actions from '../action-creators';
 import { useRouter } from 'next/router';
@@ -17,24 +17,18 @@ const SearchBoxContainer: FunctionComponent<ISearchBoxContainerProps> = ({
     const [query, setQuery] = useState<IQuery>(initialQuery);
 
     const handleSubmit = useCallback((event: FormEvent | null): void => {
-        const isTheQueryFullFilled = query !== '';
-
-        if (isTheQueryFullFilled) {
-            router.push(`/jokes/search?query=${query}`);
-        }
-
         dispatch(actions.handleSubmit(event, query));
+        router.push(`/jokes/search?query=${query}`);
     }, [dispatch, query]);
 
     const handleLuckySubmit = useCallback(() => {
-        const isTheQueryFullFilled = query !== '';
-
-        if (isTheQueryFullFilled) {
-            router.push(`/jokes/search?query=${query}&lucky=true`);
-        }
-
         dispatch(actions.handleLuckySubmit(query));
+        router.push(`/jokes/search?query=${query}&lucky=true`);
     }, [dispatch, query]);
+
+    useEffect(() => {
+        setQuery(initialQuery);
+    }, [initialQuery]);
 
     return (
         <SearchBoxPresentation {...{

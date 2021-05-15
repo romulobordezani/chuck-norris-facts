@@ -27,8 +27,26 @@ describe('getRandomItem()', () => {
     });
 
     describe('NEGATIVE', () => {
-        it('Should return null when gets [], API returns 200 [] instead of 204 no-content', () => {
-            expect(getRandomItem([])).toBeNull();
+        it('Should return [] once the API returns 200 => [] instead of 204 no-content', () => {
+            const randomItem = getRandomItem([]);
+
+            expect(randomItem).toStrictEqual([]);
+        });
+
+        it('Should return [] once the API returns 200 => [] instead of 204 no-content', () => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore -- Testing possible run time type error
+            const randomItem = getRandomItem(null);
+
+            expect(randomItem).toStrictEqual([]);
+        });
+
+        it('Should return [] once the API returns 200 => [] instead of 204 no-content', () => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore -- Testing possible run time type error
+            const randomItem = getRandomItem(undefined);
+
+            expect(randomItem).toStrictEqual([]);
         });
     });
 });

@@ -7,6 +7,7 @@ import { IJoke, IQuery } from '@types';
 import ErrorMessage from '../../__shared/error-message';
 import { ISearchPageProps } from '../../../pages/jokes/search';
 import EmptySearch from './empty-search';
+import InitialResult from "./initial-results";
 
 export interface IPageSearchPresentationProps extends ISearchPageProps {
     currentQuery: IQuery;
@@ -17,6 +18,7 @@ export interface IPageSearchPresentationProps extends ISearchPageProps {
     error: boolean;
     isALucky: boolean;
     isAnEmpty: boolean;
+    resetState(): void;
 }
 
 const PageSearchPresentation: FunctionComponent<IPageSearchPresentationProps> = ({
@@ -30,13 +32,18 @@ const PageSearchPresentation: FunctionComponent<IPageSearchPresentationProps> = 
     hasNoContent,
     error,
     isALucky,
-    isAnEmpty
+    isAnEmpty,
+    resetState
 }): ReactElement => {
     const query = currentQuery ? currentQuery : initialQuery;
 
     return (
         <>
-            <Header {...{ initialResult, initialLucky, initialQuery  }} />
+            <Header {...{ initialResult, initialLucky, initialQuery, resetState }} />
+
+            {!loading && hasNoContent && !query && !error && !isAnEmpty && (
+                <InitialResult />
+            )}
 
             {loading && (
                 <Loading />

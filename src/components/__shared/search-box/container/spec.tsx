@@ -53,7 +53,7 @@ describe('<SearchBoxContainer />', () => {
 
             const submitButton = await  screen.getByRole('button', { name: /Search/i } );
             fireEvent.click(submitButton);
-            expect(mockedRouterPush).not.toBeCalled();
+            expect(mockedRouterPush).toBeCalledWith('/jokes/search?query=');
         });
 
         it('Calls the right Redux action when Submitted as expected', async () => {
@@ -185,7 +185,7 @@ describe('<SearchBoxContainer />', () => {
 
             const luckyButton = await  screen.getByRole('button', { name: /LUCKY/i } );
             fireEvent.click(luckyButton);
-            expect(mockedRouterPush).not.toBeCalled();
+            expect(mockedRouterPush).toBeCalledWith('/jokes/search?query=&lucky=true');
         });
     });
 });

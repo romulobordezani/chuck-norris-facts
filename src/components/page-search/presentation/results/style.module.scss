@@ -1,17 +1,7 @@
-@import "/src/styles/colors";
-@import "/src/styles/breakpoints";
+@import "/src/styles/exporter";
 
 .results {
-  padding: 2rem;
-  background-image: url("/bg.png");
-  background-position: 20% -100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 60%;
-
-  @media only screen and (min-width: $large) {
-    background-position: 100% 8rem;
-  }
+  @include result;
 
   &__amount {
     font-weight: bolder;

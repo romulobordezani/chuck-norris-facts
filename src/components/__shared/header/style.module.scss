@@ -1,25 +1,46 @@
-@import "/src/styles/colors";
-@import "/src/styles/breakpoints";
+@import "/src/styles/exporter";
 
 .header {
   position: sticky;
   background-color: $darker-grey;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-  padding: 3rem;
   top: 0;
   left: 0;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 150px;
+  padding: 1rem;
+  background-image: url("/chuck_norris_PNG19.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: -30% 20%;
 
-  @media only screen and (min-width: $large) {
+  @include breakpoint($bp__medium-up) {
     background-size: contain;
     background-position: bottom left;
     background-image: url("/chuck_norris_PNG19.png");
-    background-repeat: no-repeat;
+    height: $headerHeight;
+    justify-content: space-between;
+  }
+
+  &__home {
+    width: 15rem;
+    height: 100%;
+    cursor: pointer;
+
+    @include breakpoint($bp__medium-up) {
+      width: 15rem;
+      height: 100%;
+      cursor: pointer;
+    }
+
   }
 
   &__searchBox {
-    @media only screen and (min-width: $large) {
-      margin-left: 16rem;
+    @include breakpoint($bp__medium-up) {
+
     }
   }
 }

@@ -1,12 +1,11 @@
 import { IJoke } from '@types';
 
-const getRandomItem = (payload: IJoke[]): IJoke[] | null => {
-    const slicedItem = payload[Math.floor(Math.random() * payload.length)];
-
-    if (!slicedItem) {
-        return null;
+const getRandomItem = (payload: IJoke[]): IJoke[] | [] => {
+    if (!payload || payload.length <= 0) {
+        return [];
     }
 
+    const slicedItem = payload[Math.floor(Math.random() * payload.length)];
     return [slicedItem];
 };
 

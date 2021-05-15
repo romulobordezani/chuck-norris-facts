@@ -1,20 +1,18 @@
-@import "/src/styles/colors";
-@import "/src/styles/measures";
-@import "/src/styles/breakpoints";
+@import "/src/styles/exporter";
 
 .searchBox {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 
-  @media only screen and (min-width: $large) {
+  @include breakpoint($bp__medium-up) {
     justify-content: unset;
   }
 
   &__input {
     border: none;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #2d343d;
     font-size: 1.3rem;
     padding: 0.7rem;
     border-radius: $leftButton;
@@ -22,7 +20,7 @@
     color: $paper;
     width: 100%;
 
-    @media only screen and (min-width: $large) {
+    @include breakpoint($bp__medium-up) {
       width: 16rem;
     }
 
@@ -43,6 +41,10 @@
     border-radius: $rightButton;
     height: $buttonHeight;
     font-size: 0;
-    .fa { font-size: initial; }
+
+    svg {
+      height: $buttonHeight - 1.5rem;
+      width: $buttonHeight - 1.5rem;
+    }
   }
 }

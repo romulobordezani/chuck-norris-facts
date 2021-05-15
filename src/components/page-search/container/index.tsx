@@ -1,9 +1,11 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
 import PageSearchPresentation from '../presentation';
-import { useSelector } from 'react-redux';
+import React, { FunctionComponent, useEffect, useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../../../store';
 import { ISearchPageProps } from '../../../pages/jokes/search';
 import { IJoke } from '@types';
+import { reset, fetchSet } from '../../__shared/search-box/action-creators';
+import { useRouter } from 'next/router';
 
 const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
    initialResult = [],
@@ -19,17 +21,33 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
         isAnEmpty
     } = useSelector((state: IRootState) => state.search);
     
-    const currentQuery = query;
+    const [currentQuery, setCurrentQuery] = useState(initialQuery);
     const [joinedData, setJoinedData] = useState<IJoke[]>(initialResult);
     const hasNoContent = joinedData?.length === 0;
     const hasContent = joinedData?.length > 0;
+
+    const router = useRouter();
+    const dispatch = useDispatch();
+
+    const resetState = useCallback((): void => {
+        dispatch(reset());
+        router.push('/jokes/search');
+    }, [dispatch, data, currentQuery]);
 
     useEffect(() => {
         /* istanbul ignore next -- Dispatched within SSR  */
         if (data) {
             setJoinedData(data);
         }
-    }, [data]);
+    }, [data, initialResult]);
+
+    useEffect(() => {
+        dispatch(fetchSet(joinedData));
+    }, []);
+
+    useEffect(() => {
+        setCurrentQuery(query);
+    }, [query]);
 
     return (
        <PageSearchPresentation data={joinedData} {...{
@@ -42,7 +60,8 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
            initialLucky,
            error,
            isALucky,
-           isAnEmpty
+           isAnEmpty,
+           resetState
        }} />
     );
 };

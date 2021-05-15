@@ -24,6 +24,8 @@ export interface IHandleLuckySubmit {
 
 export const fetchLoading = ():IAction => ({ type: events.FETCH_LOADING });
 
+export const reset = ():IAction => ({ type: events.USER_RESETED });
+
 export const fetchError = ():IAction => ({ type: events.FETCH_ERROR });
 
 export const fetchSet = (result: IJoke[]):IAction => ({ type: events.FETCH_SET, payload: result });

@@ -1,5 +1,4 @@
-@import "/src/styles/colors";
-@import "/src/styles/mixins";
+@import "/src/styles/exporter";
 
 .joke {
   @include card-board;
@@ -10,12 +9,15 @@
     box-shadow: 0 8px 26px 0 rgba(0,0,0,0.9);
   }
 
-  > a, > div {
+  > a {
     display: block;
     height: 100%;
     white-space: pre-wrap;
-    padding: 3rem;
+    padding: 1.5rem;
 
+    @include breakpoint($bp__medium-up) {
+      padding: 3rem;
+    }
 
     mark {
       background: $turquoise;

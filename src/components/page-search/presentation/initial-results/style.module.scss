@@ -1,0 +1,14 @@
+@import "/src/styles/exporter";
+
+.initialResults {
+  background-image: url("/sunset.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 160%;
+  width: 100%;
+  height: 100%  - $headerHeight;
+
+  @include breakpoint($bp__medium-up) {
+       background-size: 100%;
+  }
+}

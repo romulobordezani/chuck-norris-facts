@@ -1,0 +1,55 @@
+/*============================================================================
+  #Breakpoint Variables  > max-width used as default
+==============================================================================*/
+@function lower-bound($range) {
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range, 1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 7680px;
+  }
+  @return nth($range, 2);
+}
+
+$bp_tiny: 320px; /* tiny screens like iPhone 4, Galaxy S% and so on... */
+$bp_iPhone6: 375px; /* iPhone 6 only... */
+$bp_small: (max-width 480px) (orientation portrait); /* Anything smaller than a Nokia N9, commonly High Resolution devices */
+$bp_small-land: (min-width 480px) (max-width 812px) (orientation landscape);
+
+$bp_medium: (width 768px) (orientation portrait); /* Ipads, Ipad Mini and Common Tablets */
+$bp_medium-hd: (min-width 769px) (orientation portrait); /* Large screens on Tablets,yarn add at least an iPad Pro */
+
+$bp_large: (min-width 1024px);
+$bp_desktop: (min-width 1200px); /* Usually desktop computers and High definition LapTops, until TVs */
+$bp_hidpi: (min-width 1440px) (max-width 1920px);
+$bp_hd: (min-width 1920px);
+$bp_ultra-hd: (min-width 2400px);
+
+
+$bp__screen:       "only screen" !default;
+$bp__landscape:    ($bp__screen) and (orientation landscape)!default;
+$bp__portrait:     ($bp__screen) and (orientation portrait)!default;
+
+$bp__small-range:  (0em, 40em);       /* 0, 640px */
+$bp__small-up:     $bp__screen !default;
+$bp__small-only:   ($bp__screen)(max-width upper-bound($bp__small-range))!default;
+
+$bp__medium-range: (40.063em, 64em);  /* 641px, 1024px */
+$bp__medium-up:    ($bp__screen)(min-width lower-bound($bp__medium-range))!default;
+$bp__medium-only:  ($bp__screen)(min-width lower-bound($bp__medium-range ))(max-width upper-bound($bp__medium-range))!default;
+
+$bp__large-range:   (64.063em, 90em);  /* 1025px, 1440px */
+$bp__large-up:     ($bp__screen)(min-width lower-bound($bp__large-range ))!default;
+$bp__large-only:   ($bp__screen)(min-width lower-bound($bp__large-range ))(max-width upper-bound($bp__large-range))!default;
+
+$bp__xlarge-range:  (90.063em, 120em); /* 1441px, 1920px */
+$bp__xlarge-up:    ($bp__screen)(min-width lower-bound($bp__xlarge-range))!default;
+$bp__xlarge-only:  ($bp__screen)(min-width lower-bound($bp__xlarge-range))(max-width upper-bound($bp__xlarge-range))!default;
+
+$bp__xxlarge-range: (120.063em);       /* 1921px */
+$bp__xxlarge-up:   ($bp__screen)(min-width lower-bound($bp__xxlarge-range ))!default;
+$bp__xxlarge-only: ($bp__screen)(min-width lower-bound($bp__xxlarge-range))(max-width upper-bound($bp__xxlarge-range))!default;

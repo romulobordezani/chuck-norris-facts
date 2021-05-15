@@ -11,7 +11,9 @@ const Loading: FunctionComponent = (): ReactElement => (
         </div>
         <div className={style.loading__disclaimer}>
             <div className={style.loading__disclaimer__title}>
-                ⚠️  BE AWARE! ⚠️
+                <span className={style.loading__disclaimer__title__emojis}>⚠️</span>
+                BE AWARE!
+                <span className={style.loading__disclaimer__title__emojis}>⚠️</span>
             </div>
             <div className={style.loading__disclaimer__message}>
                 Chuck Norris never re<strong>loads</strong>.

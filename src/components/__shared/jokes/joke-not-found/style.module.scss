@@ -1,5 +1,4 @@
-@import "/src/styles/colors";
-@import "/src/styles/mixins";
+@import "/src/styles/exporter";
 
 .joke {
   @include card-board;

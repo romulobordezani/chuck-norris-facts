@@ -1,6 +1,4 @@
-@import "/src/styles/colors";
-@import "/src/styles/measures";
-@import "/src/styles/breakpoints";
+@import "/src/styles/exporter";
 
 .randomSearchButton {
   border: none;
@@ -13,11 +11,17 @@
   height: $buttonHeight;
   width: 100%;
 
-  @media only screen and (min-width: $large) {
+  @include breakpoint($bp__medium-only) {
+    font-size: 0;
+  }
+
+  @include breakpoint($bp__medium-up) {
     width: unset;
   }
 
   svg {
     vertical-align: text-bottom;
+    height: $buttonHeight - 1.5rem;
+    width: $buttonHeight - 1.5rem;
   }
 }

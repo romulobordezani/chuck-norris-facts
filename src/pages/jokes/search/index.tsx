@@ -6,8 +6,6 @@ import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { IJoke, IQuery } from '@types';
 
-
-
 export interface ISearchPageProps {
     initialResult?: IJoke[] | [],
     initialQuery?: IQuery,
