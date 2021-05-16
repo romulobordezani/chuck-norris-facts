@@ -1,4 +1,4 @@
-import Gateway from '.';
+import Gateway, { paramsSerializer } from '.';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 
@@ -20,5 +20,14 @@ describe('Gateway', () => {
         const gateway = new Gateway(fakeRequest, fakeResponse);
         expect (gateway.axios).toBeDefined();
         expect (gateway.axios.interceptors).toBeDefined();
+    });
+
+    it('should have a params serializer capable to remove white spaces and encode as URI', () => {
+        const query = {
+            paramWithWhiteSpaces: 'param with white spaces',
+            ordinaryParam: 'stringWithoutWhitSpaces'
+        };
+
+        expect(paramsSerializer(query)).toBe('paramWithWhiteSpaces=param%20with%20white%20spaces&ordinaryParam=stringWithoutWhitSpaces');
     });
 });

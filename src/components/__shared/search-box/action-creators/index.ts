@@ -11,7 +11,7 @@ export interface IAction {
 }
 
 export interface ISearchForJokes {
-    (query: IQuery, luck?: undefined | boolean): ThunkAction<Promise<void>, unknown, unknown, AnyAction>;
+    (query: IQuery): ThunkAction<Promise<void>, unknown, unknown, AnyAction>;
 }
 
 export interface IHandleSubmit {
@@ -32,7 +32,7 @@ export const fetchSet = (result: IJoke[]):IAction => ({ type: events.FETCH_SET, 
 
 export const fetchSetLuck = (result: IJoke[]):IAction => ({ type: events.FETCH_SET_LUCK, payload: result });
 
-export const handleSubmit: IHandleSubmit = (event, query) => async dispatch => {
+export const handleSubmit: IHandleSubmit = (event, query ) => async dispatch => {
     event?.preventDefault();
 
     if (query === '') {
@@ -44,7 +44,7 @@ export const handleSubmit: IHandleSubmit = (event, query) => async dispatch => {
     dispatch(searchForJokes(query));
 };
 
-export const handleLuckySubmit: IHandleLuckySubmit = (query) => async dispatch => {
+export const handleLuckySubmit: IHandleLuckySubmit = (query: IQuery) => async dispatch => {
     if (query === '') {
         dispatch({ type: events.USER_SUBMITTED_AN_EMPTY_VALUE });
         return;
@@ -54,7 +54,7 @@ export const handleLuckySubmit: IHandleLuckySubmit = (query) => async dispatch =
     dispatch(searchForALuckyJoke(query));
 };
 
-export const searchForJokes: ISearchForJokes = (query) =>
+export const searchForJokes: ISearchForJokes = (query: IQuery) =>
     async (dispatch: ThunkDispatch<unknown, unknown, AnyAction>) => {
         dispatch(fetchLoading());
 

@@ -9,9 +9,22 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import ExceptionHandler from '../exception-handler';
 
+interface IParams {
+    [key: string]: string;
+}
+
+export const paramsSerializer = (params: IParams): string => {
+    let result = '';
+    Object.keys(params).forEach(key => {
+        result += `${key}=${encodeURIComponent(params[key])}&`;
+    });
+    return result.substr(0, result.length - 1);
+};
+
 const DEFAULT_AXIOS_CONFIG: AxiosRequestConfig = {
     baseURL: process.env.CHUCK_NORRIS_API_URL,
-    timeout: 30000
+    timeout: 30000,
+    paramsSerializer
 };
 
 class Gateway {
