@@ -60,7 +60,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             return emptyProps;
         }
 
-        const result = await axios.get(`${process.env.CHUCK_NORRIS_API_URL}/search?query=${context.query?.query}`);
+        const result = await axios.get(`${process.env.CHUCK_NORRIS_API_URL}/search?query=${context.query?.query}`, { timeout: 30000 });
 
         return {
             props: {

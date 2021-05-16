@@ -31,8 +31,8 @@ $bp_ultra-hd: (min-width 2400px);
 
 
 $bp__screen:       "only screen" !default;
-$bp__landscape:    ($bp__screen) and (orientation landscape)!default;
-$bp__portrait:     ($bp__screen) and (orientation portrait)!default;
+$bp__landscape:    ($bp__screen)(orientation landscape)!default;
+$bp__portrait:     ($bp__screen)(orientation portrait)!default;
 
 $bp__small-range:  (0em, 40em);       /* 0, 640px */
 $bp__small-up:     $bp__screen !default;
@@ -40,7 +40,7 @@ $bp__small-only:   ($bp__screen)(max-width upper-bound($bp__small-range))!defaul
 
 $bp__medium-range: (40.063em, 64em);  /* 641px, 1024px */
 $bp__medium-up:    ($bp__screen)(min-width lower-bound($bp__medium-range))!default;
-$bp__medium-only:  ($bp__screen)(min-width lower-bound($bp__medium-range ))(max-width upper-bound($bp__medium-range))!default;
+$bp__medium-only:  ($bp__screen)(min-width lower-bound($bp__medium-range))(max-width upper-bound($bp__medium-range))!default;
 
 $bp__large-range:   (64.063em, 90em);  /* 1025px, 1440px */
 $bp__large-up:     ($bp__screen)(min-width lower-bound($bp__large-range ))!default;

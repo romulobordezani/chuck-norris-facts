@@ -23,7 +23,7 @@ export const paramsSerializer = (params: IParams): string => {
 
 const DEFAULT_AXIOS_CONFIG: AxiosRequestConfig = {
     baseURL: process.env.CHUCK_NORRIS_API_URL,
-    timeout: 30000,
+    timeout: 10000,
     paramsSerializer
 };
 

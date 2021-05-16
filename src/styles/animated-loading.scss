@@ -19,6 +19,10 @@ $fontSizeToResponsiveness: 16px;
   @include breakpoint($bp__landscape) {
     display: none;
   }
+
+  @include breakpoint($bp__large-up) {
+    display: block;
+  }
 }
 
 .loader:before {

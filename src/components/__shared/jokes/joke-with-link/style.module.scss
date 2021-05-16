@@ -2,7 +2,7 @@
 
 .joke {
   @include card-board;
-  padding: 0;
+  padding: 0!important;
 
   &:hover {
     background-color: rgb(58, 67, 78);
@@ -16,7 +16,7 @@
     padding: 1rem;
 
     @include breakpoint($bp__medium-up) {
-      padding: 1rem;
+      padding: 2rem;
     }
   }
 }
