@@ -3,7 +3,6 @@ import React, { FunctionComponent, useEffect, useState, useCallback } from 'reac
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../../../store';
 import { ISearchPageProps } from '../../../pages/jokes/search';
-import { IJoke } from '@types';
 import { reset, fetchSet } from '../../__shared/search-box/action-creators';
 import { useRouter } from 'next/router';
 
@@ -22,9 +21,8 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
     } = useSelector((state: IRootState) => state.search);
     
     const [currentQuery, setCurrentQuery] = useState(initialQuery);
-    const [joinedData, setJoinedData] = useState<IJoke[]>(initialResult);
-    const hasNoContent = joinedData?.length === 0;
-    const hasContent = joinedData?.length > 0;
+    const hasContent = data?.length > 0;
+    const hasNoContent = data?.length === 0;
 
     const router = useRouter();
     const dispatch = useDispatch();
@@ -35,14 +33,7 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
     }, [dispatch, data, currentQuery]);
 
     useEffect(() => {
-        /* istanbul ignore next -- Dispatched within SSR  */
-        if (data) {
-            setJoinedData(data);
-        }
-    }, [data, initialResult]);
-
-    useEffect(() => {
-        dispatch(fetchSet(joinedData));
+        dispatch(fetchSet(initialResult));
     }, []);
 
     useEffect(() => {
@@ -50,7 +41,8 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
     }, [query]);
 
     return (
-       <PageSearchPresentation data={joinedData} {...{
+       <PageSearchPresentation {...{
+           data,
            loading,
            hasNoContent,
            hasContent,

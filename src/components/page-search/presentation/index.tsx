@@ -57,7 +57,7 @@ const PageSearchPresentation: FunctionComponent<IPageSearchPresentationProps> = 
                 />
             )}
 
-            {hasNoContent && !loading && query && !error && (
+            {hasNoContent && !loading && query && !error && !isAnEmpty && (
                 <NoResults query={query} />
             )}
 
