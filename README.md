@@ -1,38 +1,92 @@
-# Norris Did
+<img src="public/chuck_norris_PNG19.png" alt="Pens in a Darth Vader themed cup" width="30%" />
+
+# Chuck Norris' facts search interface
+This is a [`challenge`](./CHALLENGE.md) made with 🧡, hoping to join Nuuvem team and:  
+ * [`TypeScript`](https://www.typescriptlang.org/)
+ * [`React.js`](https://reactjs.org/) + [`Next.js`](https://nextjs.org/)
+ * [`SASS`](https://sass-lang.com/)
+ * [`Node.js`](https://nodejs.org/en/) + [`Expressjs`](https://expressjs.com/)
 
 
+ Started with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ Does **NOT** use any design system as Material Ui, Ant, Bootstrap or any similar to show some CSS skills 📱📺💻🖥 with all components `coded from  scratch` by me. 
+
+## On Github
+Available at [https://github.com/romulobordezani/chuck-norris-facts](https://github.com/romulobordezani/chuck-norris-facts), with all it's commits telling the whole developmet history, issues, bugs fixed and `Github actions`.
 
 ## Getting Started
 
-First, run the development server:
+First, ensure you have `Node ^14` up and running.
+
+Optional, but recommended, [`install yarn`](https://yarnpkg.com/getting-started/install) to use all the power of Webpack 5 with Yarn Pnp.
+
+```bash
+npm install -g yarn
+```
+
+#### Install NPM packages
+
+```bash
+npm install
+# or (recommended)
+yarn
+```
+
+#### Running
 
 ```bash
 npm run dev
-# or
+# or (recommended)
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `pages/search/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#### BFF
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[API routes](https://nextjs.org/docs/api-routes/introduction) where used to avoid CROSS domain issues and add an extra layer of monitoring and reports based on logs.
 
-## Learn More
+Avaliable endpoints:
 
-To learn more about Next.js, take a look at the following resources:
+| url | file |
+| ------------- | ------------- |
+|    [http://localhost:3000/api/chuck-norris-facts/jokes/search?query=joke](http://localhost:3000/api/chuck-norris-facts/jokes/search?query=joke)       |   `pages/api/chuck-norris-facts/jokes/search/index.ts`   | 
+|    [http://localhost:3000/api/chuck-norris-facts/jokes/:id](http://localhost:3000/api/chuck-norris-facts/jokes/LQDsZuk2RhSu3DKHpxE7Gw)       |   `pages/api/chuck-norris-facts/jokes/[id].ts`   | 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+> The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### ENV vars
+Locally, the [app will inject](https://nextjs.org/docs/basic-features/environment-variables) all vars wrote down in the `/.env` file.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+All .env files suffixed with .local are ignored by github, what makes them a good place to secrets while running locally, preventing them to get exposed.
+
+In production you can pass secrets via environment vars as usually.
+
+> In order to expose a variable to the browser you have to prefix the variable with NEXT_PUBLIC_. For example: **NEXT_PUBLIC_ANALYTICS_ID=abcdefghijk**
+
+
+## Code quality
+
+To ensure code quality, [`Husky`](https://www.npmjs.com/package/husky) is set up and will run tests and lint the code before commits, if it fails, will abort the commit.
+
+> You can by pass Husky verifications with `--no-verify` at the end of your git command, but Chuck Norris **doesn't** recommend this approuch.
+
+#### Tests
+```bash
+npm run test
+# or (recommended)
+yarn test
+```
+
+
+#### Lint + Type Script validations
+```bash
+npm run lint
+# or (recommended)
+yarn lint
+```
