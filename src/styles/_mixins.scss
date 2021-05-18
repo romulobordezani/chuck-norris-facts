@@ -7,7 +7,7 @@
   padding: 1rem;
   border-radius: 0.4rem;
   transition: all 0.5s linear;
-  white-space: nowrap;
+  white-space: pre-wrap;
   overflow: hidden;
 
   @include breakpoint($bp__medium-up) {
