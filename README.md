@@ -97,7 +97,7 @@ npm run lint
 yarn lint
 ```
  
- ## Achievements 
+## Achievements 
 * SSR html and meta tags generation to share the jokes on social media
 * Hybrid routing system, that works as SSR and SPA
 * BFF made with Typescript, with an interceptor based gateway, integrated with the Routing system
@@ -107,6 +107,7 @@ yarn lint
 * BDD (Behavior Driven Development) implemmented based on accessibility roles
 * Does **NOT** use any design system as Material Ui, Bootstrap or any similar to show some CSS skills 
 * Using only Breakpoint SASS as Responsiveness Framework, with support to DPI and orientation 📱💻🖥 
+* PWA Service Worker, to have a better control of caching and allow users to install offline on mobile.
 
 
 ## ROADMAP 
@@ -116,6 +117,4 @@ Following, a list of stuff I would like to do, but there is no more time...
 * Auto-complete in the search box.
 * Pagination, would be nice to add a pagination but I couldn't find any information about it in the API and got out of time.
 * Log rotation system, integrated with some monitoring tool like SPlunk, Kibana + Elastic Search, New Relic etc.
-* PWA Service Worker, to have a better control of caching and allow users to install offline on mobile.
-* Set up an AMP version, to make it even more friendly to Google and it's cached embedded on search pages
 * Github badge with code coverage on README.md
