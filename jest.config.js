@@ -26,8 +26,9 @@ module.exports = {
 		'!**/*{config,configs}.{js,jsx,ts,tsx}',
 		'!**/*{mock,Mock,d}.{ts,tsx}',
 		'!<rootDir>/src/pages/_app.tsx',
+		'!<rootDir>/src/pages/_document.tsx',
 		'!<rootDir>/src/test/index.ts',
-		'!<rootDir>/public/**',
+		'!<rootDir>/public/**'
 	],
 	coverageThreshold: {
 		global: {

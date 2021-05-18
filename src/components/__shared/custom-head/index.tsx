@@ -32,7 +32,7 @@ const CustomHead: FunctionComponent<ICustomHead> = ({ title = DEFAULT_TITLE, jok
             />
             <link rel="apple-touch-icon" href="/apple-icon.png"></link>
             <meta name="theme-color" content="#ff8360" />
-            <meta name="viewport" content="width=device-width,user-scalable=no" />
+            <meta name="viewport" content="width=device-width" />
 
             {joke && (
                 <>

@@ -1,7 +1,7 @@
 @import "/src/styles/exporter";
 
 .initialResults {
-  background-image: url("/sunset.png");
+  background-image: url("/sunset_small.jpg");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 160%;
@@ -10,5 +10,6 @@
 
   @include breakpoint($bp__medium-up) {
        background-size: 100%;
+       background-image: url("/sunset.jpg");
   }
 }

@@ -20,6 +20,7 @@ const Header: FunctionComponent<IHeaderProps> = ({
                 role="button"
                 onClick={resetState}
                 data-testid="home-button"
+                aria-label="Back to Home"
             />
             <div className={styles.header__searchBox}>
                 <SearchBoxContainer {...{
