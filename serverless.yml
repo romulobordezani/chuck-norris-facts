@@ -3,3 +3,7 @@ slsNextApp:
   inputs:
     cloudfront:
       distributionId: E1WO9AM1ZWAD05
+    timeout:
+      defaultLambda: 20
+      apiLambda: 15
+      imageLambda: 15
