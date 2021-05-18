@@ -1,6 +1,7 @@
 import { getServerSideProps } from '../../../pages/jokes/[id]';
 import jokeMock from '../../../components/__shared/__mocks__/joke.mock.json';
 import axios from 'axios';
+import { CLOUDFRONT_DOMAIN } from '../../../components/__shared/constants';
 
 jest.mock('axios');
 
@@ -35,7 +36,7 @@ describe('Joke Page => getServerSideProps()', () => {
             expect.objectContaining({
                 props: {
                     joke: jokeMock,
-                    host: fakeContext.req.headers.host
+                    host: CLOUDFRONT_DOMAIN
                 }
             }
         ));
@@ -52,7 +53,8 @@ describe('Joke Page => getServerSideProps()', () => {
         expect(response).toEqual(
             expect.objectContaining({
                     props: {
-                        joke: null
+                        joke: null,
+                        host: CLOUDFRONT_DOMAIN
                     }
                 }
             ));

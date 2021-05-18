@@ -1,0 +1,1 @@
+export const CLOUDFRONT_DOMAIN = 'https://d37bjw0zvp9al3.cloudfront.net';

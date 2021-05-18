@@ -118,3 +118,4 @@ Following, a list of stuff I would like to do, but there is no more time...
 * Pagination, would be nice to add a pagination but I couldn't find any information about it in the API and got out of time.
 * Log rotation system, integrated with some monitoring tool like SPlunk, Kibana + Elastic Search, New Relic etc.
 * Github badge with code coverage on README.md
+* Add internationalization with i18n, supporting multiple languages
