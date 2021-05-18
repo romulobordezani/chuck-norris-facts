@@ -1,4 +1,4 @@
-name: CI
+name: DeployCloudFront
 on:
   push:
     branches: [ main ]

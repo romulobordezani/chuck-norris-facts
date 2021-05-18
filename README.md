@@ -2,9 +2,7 @@
 
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 [![Node.js CI](https://github.com/romulobordezani/chuck-norris-facts/actions/workflows/nodejs.yml/badge.svg)](https://github.com/romulobordezani/chuck-norris-facts/actions/workflows/nodejs.yml)
-![Coveralls branch](https://img.shields.io/coveralls/github/romulobordezani/chuck-norris-facts/main)
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
 # Chuck Norris' facts search interface
 This is a [`challenge`](./CHALLENGE.md) made with 🧡, hoping to join Nuuvem team and:  
@@ -19,6 +17,9 @@ This is a [`challenge`](./CHALLENGE.md) made with 🧡, hoping to join Nuuvem te
 
 ## On Github
 Available at [https://github.com/romulobordezani/chuck-norris-facts](https://github.com/romulobordezani/chuck-norris-facts), with all it's commits telling the whole developmet history, issues, bugs fixed and `Github actions`.
+
+## At AWS:
+Available at: [https://d37bjw0zvp9al3.cloudfront.net/](https://d37bjw0zvp9al3.cloudfront.net/)
 
 ## Getting Started
 
