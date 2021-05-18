@@ -8,7 +8,7 @@ describe('<HomePage />', () => {
   it('Should render as expected', async () => {
     render((
         <ProviderMock>
-          <SearchPage />
+          <SearchPage initialTotal={0} />
         </ProviderMock>
     ), {});
     const elementWithExpectedText = await screen.findAllByText('LUCKY');

@@ -46,11 +46,12 @@ describe('<SearchBoxContainer />', () => {
                         initialQuery={''}
                         initialLucky={false}
                         initialResult={[]}
+                        initialTotal={0}
                     />
                 </ProviderMock>
             ), {});
 
-            const homeButton = getByTestId("home-button");
+            const homeButton = getByTestId('home-button');
             expect(homeButton).toBeInTheDocument();
             fireEvent.click(homeButton);
             expect(mockedRouterPush).toBeCalledWith('/jokes/search');

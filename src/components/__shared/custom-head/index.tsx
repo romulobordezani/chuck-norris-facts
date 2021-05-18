@@ -42,7 +42,7 @@ const CustomHead: FunctionComponent<ICustomHead> = ({ title = DEFAULT_TITLE, jok
                     <meta property="og:url" content={`${host}/jokes/${joke?.id}`} />
                     <meta property="og:image" itemProp="image" content={`${host}/icons/icon-512x512.png`}/>
                     <meta property="og:site_name" content="Norris Did" />
-                    <meta property="og:description" content="Programa de fiestas" />
+                    <meta property="og:description" content={joke?.value} />
                     <meta property="og:type" content="website" />
                     <meta property="og:updated_time" content="1440432930" />
                 </>

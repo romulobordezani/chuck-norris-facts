@@ -9,7 +9,8 @@ import { useRouter } from 'next/router';
 const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
    initialResult = [],
    initialQuery,
-   initialLucky
+   initialLucky,
+   initialTotal
 }) => {
     const {
         data,
@@ -17,10 +18,13 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
         error,
         query,
         isALucky,
-        isAnEmpty
+        isAnEmpty,
+        total
     } = useSelector((state: IRootState) => state.search);
     
     const [currentQuery, setCurrentQuery] = useState(initialQuery);
+    const [currentTotal, setCurrentTotal] = useState(initialTotal);
+    
     const hasContent = data?.length > 0;
     const hasNoContent = data?.length === 0;
 
@@ -30,15 +34,16 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
     const resetState = useCallback((): void => {
         dispatch(reset());
         router.push('/jokes/search');
-    }, [dispatch, data, currentQuery]);
+    }, [dispatch, data, currentQuery, currentTotal]);
 
     useEffect(() => {
-        dispatch(fetchSet(initialResult));
+        dispatch(fetchSet({ result: initialResult, total: currentTotal } ));
     }, []);
 
     useEffect(() => {
         setCurrentQuery(query);
-    }, [query]);
+        setCurrentTotal(total);
+    }, [query, total]);
 
     return (
        <PageSearchPresentation {...{
@@ -49,11 +54,13 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
            currentQuery,
            initialQuery,
            initialResult,
+           initialTotal,
            initialLucky,
            error,
            isALucky,
            isAnEmpty,
-           resetState
+           resetState,
+           currentTotal
        }} />
     );
 };

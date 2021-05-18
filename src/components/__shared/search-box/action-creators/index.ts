@@ -28,9 +28,9 @@ export const reset = ():IAction => ({ type: events.USER_RESETED });
 
 export const fetchError = ():IAction => ({ type: events.FETCH_ERROR });
 
-export const fetchSet = (result: IJoke[]):IAction => ({ type: events.FETCH_SET, payload: result });
+export const fetchSet = (payload: { result: IJoke[], total: number }):IAction => ({ type: events.FETCH_SET, payload });
 
-export const fetchSetLuck = (result: IJoke[]):IAction => ({ type: events.FETCH_SET_LUCK, payload: result });
+export const fetchSetLuck = (payload: { result: IJoke[], total: number }):IAction => ({ type: events.FETCH_SET_LUCK, payload });
 
 export const handleSubmit: IHandleSubmit = (event, query ) => async dispatch => {
     event?.preventDefault();
@@ -40,7 +40,7 @@ export const handleSubmit: IHandleSubmit = (event, query ) => async dispatch => 
         return;
     }
 
-    dispatch({ type: events.USER_SUBMITTED, payload: query });
+    dispatch({ type: events.USER_SUBMITTED, query });
     dispatch(searchForJokes(query));
 };
 
@@ -50,7 +50,7 @@ export const handleLuckySubmit: IHandleLuckySubmit = (query: IQuery) => async di
         return;
     }
 
-    dispatch({ type: events.USER_LUCKY_SUBMITTED, payload: query });
+    dispatch({ type: events.USER_LUCKY_SUBMITTED, query });
     dispatch(searchForALuckyJoke(query));
 };
 
@@ -64,7 +64,7 @@ export const searchForJokes: ISearchForJokes = (query: IQuery) =>
                 { params: { query } }
             );
 
-            dispatch(fetchSet(result?.data?.result));
+            dispatch(fetchSet(result.data));
         } catch(error) {
             dispatch(fetchError());
             console.error(error);
@@ -81,7 +81,7 @@ export const searchForALuckyJoke: ISearchForJokes = (query: IQuery) =>
                 { params: { query } }
             );
 
-            dispatch(fetchSetLuck(result?.data?.result));
+            dispatch(fetchSetLuck(result.data));
         } catch(error) {
             dispatch(fetchError());
             console.error(error);

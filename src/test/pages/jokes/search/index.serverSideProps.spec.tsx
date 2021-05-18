@@ -20,7 +20,8 @@ const emptyProps: IEmptyProps = {
     props: {
         initialResult: [],
         initialQuery: '',
-        initialLucky: null
+        initialLucky: null,
+        initialTotal: 0
     }
 };
 

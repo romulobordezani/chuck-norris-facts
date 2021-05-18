@@ -19,6 +19,7 @@ export interface IPageSearchPresentationProps extends ISearchPageProps {
     isALucky: boolean;
     isAnEmpty: boolean;
     resetState(): void;
+    currentTotal: number;
 }
 
 const PageSearchPresentation: FunctionComponent<IPageSearchPresentationProps> = ({
@@ -33,13 +34,21 @@ const PageSearchPresentation: FunctionComponent<IPageSearchPresentationProps> = 
     error,
     isALucky,
     isAnEmpty,
-    resetState
+    resetState,
+    initialTotal,
+    currentTotal
 }): ReactElement => {
     const query = currentQuery ? currentQuery : initialQuery;
 
     return (
         <>
-            <Header {...{ initialResult, initialLucky, initialQuery, resetState }} />
+            <Header {...{
+                initialResult,
+                initialLucky,
+                initialQuery,
+                resetState,
+                initialTotal
+            }} />
 
             {!loading && hasNoContent && !query && !error && !isAnEmpty && (
                 <InitialResult />
@@ -54,6 +63,7 @@ const PageSearchPresentation: FunctionComponent<IPageSearchPresentationProps> = 
                     result={data}
                     query={query}
                     isALucky={isALucky}
+                    currentTotal={currentTotal}
                 />
             )}
 

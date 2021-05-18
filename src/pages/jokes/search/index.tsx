@@ -9,26 +9,19 @@ import { IJoke, IQuery } from '@types';
 export interface ISearchPageProps {
     initialResult?: IJoke[] | [],
     initialQuery?: IQuery,
-    initialLucky?: boolean | null
+    initialLucky?: boolean | null,
+    initialTotal: number
 }
 
 export interface IEmptyProps {
     props: ISearchPageProps
 }
 
-const SearchPage: FunctionComponent<ISearchPageProps> = ({
-    initialResult,
-    initialQuery = '',
-    initialLucky
-}): ReactElement => {
+const SearchPage: FunctionComponent<ISearchPageProps> = (props): ReactElement => {
     return (
         <>
             <CustomHead />
-            <SearchContainer {...{
-                initialResult,
-                initialQuery,
-                initialLucky
-            }} />
+            <SearchContainer {...props} />
         </>
     );
 };
@@ -39,7 +32,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         props: {
             initialResult: [],
             initialQuery: context.query?.query || '',
-            initialLucky: null
+            initialLucky: null,
+            initialTotal: 0
         }
     };
 
@@ -68,7 +62,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             props: {
                 initialResult: result?.data?.result,
                 initialQuery: context.query?.query,
-                initialLucky: context.query?.lucky || null
+                initialLucky: context.query?.lucky || null,
+                initialTotal: result?.data?.total
             }
         };
     } catch(error) {

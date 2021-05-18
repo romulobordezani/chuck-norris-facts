@@ -3,20 +3,40 @@
 .joke {
   @include card-board;
 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+
+  @include breakpoint($bp__medium-up) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
   &__text {
     display: block;
     height: 100%;
     white-space: pre-wrap;
   }
 
-  &__twitterButton {
-    color: $turquoise;
-    font-size: 1.1rem;
-    margin: 2rem 0  0!important;
+  &__socials {
+    margin: 2rem 0;
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
 
-    svg {
-      vertical-align: text-bottom;
+    @include breakpoint($bp__medium-up) {
+      margin: 0;
+    }
+
+    > div {
+      font-size: 0;
+
+      svg {
+        vertical-align: text-bottom;
+      }
     }
   }
-
 }

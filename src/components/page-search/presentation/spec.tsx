@@ -18,7 +18,9 @@ const defaultPropsWithContent: IPageSearchPresentationProps = {
     error: false,
     isALucky: false,
     isAnEmpty: false,
-    resetState: jest.fn()
+    resetState: jest.fn(),
+    currentTotal: 0,
+    initialTotal: 0
 };
 
 describe('<PageSearchPresentation />', () => {
@@ -155,5 +157,28 @@ describe('<PageSearchPresentation />', () => {
         expect(queryByTestId('empty-search-component')).not.toBeInTheDocument();
         expect(queryByTestId('loading-component')).not.toBeInTheDocument();
         expect(queryByTestId('error-message-component')).not.toBeInTheDocument();
+    });
+
+    describe('Huge results', () => {
+        it('Should show total results, while just using AWS Edge server that just support 1Mb payload', async () => {
+            const FAKE_TOTAL = 9000;
+
+            props.currentTotal = FAKE_TOTAL;
+            props.initialTotal = FAKE_TOTAL;
+
+            const { getByRole } = render((
+                <ProviderMock>
+                    <PageSearchPresentation {...props} />
+                </ProviderMock>
+            ), {});
+            
+            const disClaimerAboutPartialResults = getByRole(
+                'heading',
+                { 
+                    name: 'About 10 results from 9000 in total'
+                }
+            );
+            expect(disClaimerAboutPartialResults).toBeInTheDocument();
+        });
     });
 });

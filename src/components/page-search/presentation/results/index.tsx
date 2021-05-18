@@ -8,14 +8,16 @@ interface IResultProps {
     result: IJoke[];
     query: IQuery;
     isALucky: boolean;
+    currentTotal: number;
 }
 
 const Results: FunctionComponent<IResultProps> = ({
       result,
       query ,
-      isALucky
+      isALucky,
+      currentTotal
 }) => {
-    const total = result?.length;
+    const totalLimited = result?.length;
 
     return (
         <div className={styles.results} data-testid="results-component">
@@ -27,7 +29,11 @@ const Results: FunctionComponent<IResultProps> = ({
 
             {!isALucky && (
                 <h3>
-                    About <span className={styles.results__amount}>{total}</span> results.
+                    About <span className={styles.results__amount}>{totalLimited}</span> results { currentTotal >= 2500 && (
+                        <>
+                        from {currentTotal} in total
+                        </>
+                    )}
                 </h3>
             )}
 

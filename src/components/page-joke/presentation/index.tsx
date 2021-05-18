@@ -19,7 +19,7 @@ const PageJokePresentation: FunctionComponent<IPageJokePresentation> = ({
 }): ReactElement => {
     return (
         <>
-            <Header initialQuery="" resetState={resetState} />
+            <Header initialQuery="" resetState={resetState} initialTotal={1} />
             {joke && (
                 <div className={styles.jokeContainer}>
                     <JokeSocials {...{ joke, host }} />
