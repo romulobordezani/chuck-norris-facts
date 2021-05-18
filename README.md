@@ -79,7 +79,7 @@ In production you can pass secrets via environment vars as usually.
 
 To ensure code quality, [`Husky`](https://www.npmjs.com/package/husky) is set up and will run tests and lint the code before commits, if it fails, will abort the commit.
 
-> You can by pass Husky verifications with `--no-verify` at the end of your git command, but Chuck Norris **doesn't** recommend this approuch.
+> You can by pass Husky verifications with `--no-verify` at the end of your git command, but Chuck Norris **doesn't** recommend this approuch. 🤠
 
 #### Tests
 ```bash
