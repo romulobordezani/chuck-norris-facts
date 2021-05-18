@@ -41,6 +41,7 @@ class Gateway {
 
         /* istanbul ignore next -- Interceptor available only in a real request */
         this.axios.interceptors.response.use((response: AxiosResponse) => {
+            response.data.result = response.data.result.slice(0,2500);
             res.json(response.data);
             return response;
         },(error: AxiosError) => {
