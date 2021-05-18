@@ -1,4 +1,10 @@
-<img src="public/chuck_norris_PNG19.png" alt="Pens in a Darth Vader themed cup" width="30%" />
+<img src="public/chuck_norris_PNG19.png" alt="Pens in a Darth Vader themed cup" width="50%" />
+
+[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
+[![Node.js CI](https://github.com/romulobordezani/chuck-norris-facts/actions/workflows/nodejs.yml/badge.svg)](https://github.com/romulobordezani/chuck-norris-facts/actions/workflows/nodejs.yml)
+![Coveralls branch](https://img.shields.io/coveralls/github/romulobordezani/chuck-norris-facts/main)
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
 # Chuck Norris' facts search interface
 This is a [`challenge`](./CHALLENGE.md) made with 🧡, hoping to join Nuuvem team and:  
@@ -10,7 +16,6 @@ This is a [`challenge`](./CHALLENGE.md) made with 🧡, hoping to join Nuuvem te
 
  Started with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
- Does **NOT** use any design system as Material Ui, Ant, Bootstrap or any similar to show some CSS skills 📱📺💻🖥 with all components `coded from  scratch` by me. 
 
 ## On Github
 Available at [https://github.com/romulobordezani/chuck-norris-facts](https://github.com/romulobordezani/chuck-norris-facts), with all it's commits telling the whole developmet history, issues, bugs fixed and `Github actions`.
@@ -90,3 +95,26 @@ npm run lint
 # or (recommended)
 yarn lint
 ```
+ 
+ ## Achievements 
+* SSR html and meta tags generation to share the jokes on social media
+* Hybrid routing system, that works as SSR and SPA
+* BFF made with Typescript, with an interceptor based gateway, integrated with the Routing system
+* Deploy on AWS serverless
+* Full Code Quality control, stoping bad commits, blocking Pull Requests with no passing tests and lint
+* 100% test coverage
+* BDD (Behavior Driven Development) implemmented based on accessibility roles
+* Does **NOT** use any design system as Material Ui, Bootstrap or any similar to show some CSS skills 
+* Using only Breakpoint SASS as Responsiveness Framework, with support to DPI and orientation 📱💻🖥 
+
+
+## ROADMAP 
+
+Following, a list of stuff I would like to do, but there is no more time...
+
+* Auto-complete in the search box.
+* Pagination, would be nice to add a pagination but I couldn't find any information about it in the API and got out of time.
+* Log rotation system, integrated with some monitoring tool like SPlunk, Kibana + Elastic Search, New Relic etc.
+* PWA Service Worker, to have a better control of caching and allow users to install offline on mobile.
+* Set up an AMP version, to make it even more friendly to Google and it's cached embedded on search pages
+* Github badge with code coverage on README.md
