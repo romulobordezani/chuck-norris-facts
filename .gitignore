@@ -33,8 +33,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# JetBrains
 .idea
 
-
+#serverless
 .serverless
 .serverless_nextjs
