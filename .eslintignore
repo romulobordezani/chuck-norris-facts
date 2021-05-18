@@ -3,3 +3,4 @@
 **/.next/*
 jest.config.js
 /src/test/index.ts
+/public/*
