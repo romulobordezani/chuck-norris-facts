@@ -5,10 +5,11 @@ import { IRootState } from '../../../store';
 import { ISearchPageProps } from '../../../pages/jokes/search';
 import { reset, fetchSet } from '../../__shared/search-box/action-creators';
 import { useRouter } from 'next/router';
+import { IQuery } from '@types';
 
 const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
    initialResult = [],
-   initialQuery,
+   initialQuery = '',
    initialLucky,
    initialTotal
 }) => {
@@ -22,8 +23,8 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
         total
     } = useSelector((state: IRootState) => state.search);
     
-    const [currentQuery, setCurrentQuery] = useState(initialQuery);
-    const [currentTotal, setCurrentTotal] = useState(initialTotal);
+    const [currentQuery, setCurrentQuery] = useState<IQuery>(initialQuery);
+    const [currentTotal, setCurrentTotal] = useState<number>(initialTotal);
     
     const hasContent = data?.length > 0;
     const hasNoContent = data?.length === 0;
@@ -37,13 +38,16 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
     }, [dispatch, data, currentQuery, currentTotal]);
 
     useEffect(() => {
-        dispatch(fetchSet({ result: initialResult, total: currentTotal } ));
+        dispatch(fetchSet({ result: initialResult, total: currentTotal }));
     }, []);
 
     useEffect(() => {
         setCurrentQuery(query);
+    }, [query]);
+
+    useEffect(() => {
         setCurrentTotal(total);
-    }, [query, total]);
+    }, [total]);
 
     return (
        <PageSearchPresentation {...{
@@ -52,6 +56,7 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
            hasNoContent,
            hasContent,
            currentQuery,
+           currentTotal,
            initialQuery,
            initialResult,
            initialTotal,
@@ -59,8 +64,7 @@ const PageSearchContainer: FunctionComponent<ISearchPageProps> = ({
            error,
            isALucky,
            isAnEmpty,
-           resetState,
-           currentTotal
+           resetState           
        }} />
     );
 };

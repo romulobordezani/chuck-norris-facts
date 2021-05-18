@@ -32,7 +32,7 @@ export const fetchSet = (payload: { result: IJoke[], total: number }):IAction =>
 
 export const fetchSetLuck = (payload: { result: IJoke[], total: number }):IAction => ({ type: events.FETCH_SET_LUCK, payload });
 
-export const handleSubmit: IHandleSubmit = (event, query ) => async dispatch => {
+export const handleSubmit: IHandleSubmit = (event, query) => async dispatch => {
     event?.preventDefault();
 
     if (query === '') {

@@ -19,12 +19,12 @@ const SearchBoxContainer: FunctionComponent<ISearchBoxContainerProps> = ({
     const handleSubmit = useCallback((event: FormEvent | null): void => {
         dispatch(actions.handleSubmit(event, query));
         router.push(`/jokes/search?query=${query}`);
-    }, [dispatch, query]);
+    }, [dispatch, query, initialQuery]);
 
     const handleLuckySubmit = useCallback(() => {
         dispatch(actions.handleLuckySubmit(query));
         router.push(`/jokes/search?query=${query}&lucky=true`);
-    }, [dispatch, query]);
+    }, [dispatch, query, initialQuery]);
 
     useEffect(() => {
         setQuery(initialQuery);

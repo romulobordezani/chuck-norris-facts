@@ -42,10 +42,11 @@ const PageSearchPresentation: FunctionComponent<IPageSearchPresentationProps> = 
 
     return (
         <>
-            <Header {...{
+            <Header 
+            initialQuery={query}
+            {...{
                 initialResult,
                 initialLucky,
-                initialQuery,
                 resetState,
                 initialTotal
             }} />
