@@ -1,9 +1,9 @@
 {
     "name": "Norris Did",
     "short_name": "Norris Did",
-    "theme_color": "#ff8360",
+    "theme_color": "#151d27",
     "background_color": "#151d27",
-    "display": "fullscreen",
+    "display": "minimal-ui",
     "orientation": "portrait",
     "scope": "/",
     "start_url": "/",

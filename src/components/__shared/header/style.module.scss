@@ -16,7 +16,7 @@
   background-image: url("/chuck_norris_PNG19.png");
   background-size: 50%;
   background-repeat: no-repeat;
-  background-position: -30% 20%;
+  background-position: -30% 90%;
 
   @include breakpoint($bp__medium-up) {
     background-size: contain;
