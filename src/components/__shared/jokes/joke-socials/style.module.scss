@@ -38,5 +38,11 @@
         vertical-align: text-bottom;
       }
     }
+
+    &__shareButton {
+      @include breakpoint($bp__large-up) {
+        display: none;
+      }
+    }
   }
 }

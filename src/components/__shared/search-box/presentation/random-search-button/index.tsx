@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHatCowboy  } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './style.module.scss';
+import { createRipple } from '@utils';
 
 export interface IRandomSearchButton {
     handleLuckySubmit(): void;
@@ -12,7 +13,10 @@ const RandomSearchButton: FunctionComponent<IRandomSearchButton> = ({ handleLuck
     return (
         <button
             className={styles.randomSearchButton}
-            onClick={() => { handleLuckySubmit(); } }
+            onClick={e => {
+                createRipple(e);
+                handleLuckySubmit();
+            } }
             type="button"
             role="button"
         >

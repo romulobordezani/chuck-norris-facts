@@ -32,19 +32,24 @@
   }
 
   &__submit {
-    border: none;
-    outline: none;
+    @include ripple-container;
+    display: flex;
+    align-items: center;
     background-color: $coral;
     color: rgb(82, 21, 2);
     padding: 0.7rem 2rem;
-    cursor: pointer;
     border-radius: $rightButton;
     height: $buttonHeight;
     font-size: 0;
 
     svg {
-      height: $buttonHeight - 1.5rem;
-      width: $buttonHeight - 1.5rem;
+      height: $buttonHeight - 0.5rem;
+      width: $buttonHeight - 0.5rem;
+
+      @include breakpoint($bp__medium-up) {
+        height: $buttonHeight - 1.5rem;
+         width: $buttonHeight - 1.5rem;
+      }
     }
   }
 }

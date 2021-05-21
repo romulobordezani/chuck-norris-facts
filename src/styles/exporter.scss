@@ -1,6 +1,9 @@
 @import "colors";
 @import "breakpoints";
-@import "mixins";
 @import "measures";
+
+@import "mixins/card-board";
+@import "mixins/results";
+@import "mixins/ripple-container";
 
 @import "/node_modules/breakpoint-sass/stylesheets/_breakpoint.scss";

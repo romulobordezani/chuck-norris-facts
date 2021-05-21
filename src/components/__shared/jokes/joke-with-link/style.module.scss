@@ -2,6 +2,7 @@
 
 .joke {
   @include card-board;
+  @include ripple-container;
   padding: 0 1rem 0 0!important;
   display: flex;
   align-items: flex-start;

@@ -1,0 +1,13 @@
+@import "../breakpoints";
+
+@mixin result {
+    padding: 1rem;
+  
+    h3 {
+      text-shadow: 2px 2px 8px $darker-grey;
+    }
+  
+    @include breakpoint($bp__medium-up) {
+      padding: 2rem;
+    }
+  }

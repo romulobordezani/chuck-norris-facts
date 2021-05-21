@@ -1,4 +1,4 @@
-@import "/src/styles/breakpoints";
+@import "../breakpoints";
 
 @mixin card-board {
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.5);
@@ -18,7 +18,7 @@
     background: $coral;
     border-radius: 0.2rem;
     text-shadow: none;
-    padding: 0.1rem;
+    padding: 0.01rem;
   }
 
   /*
@@ -42,17 +42,5 @@
 
   mark::after {
     content: " [highlight end] ";
-  }
-}
-
-@mixin result {
-  padding: 1rem;
-
-  h3 {
-    text-shadow: 2px 2px 8px $darker-grey;
-  }
-
-  @include breakpoint($bp__medium-up) {
-    padding: 2rem;
   }
 }

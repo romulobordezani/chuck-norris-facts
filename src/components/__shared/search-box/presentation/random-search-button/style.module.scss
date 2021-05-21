@@ -1,8 +1,7 @@
 @import "/src/styles/exporter";
 
 .randomSearchButton {
-  border: none;
-  outline: none;
+  @include ripple-container;
   cursor: help;
   background-color: $mantis;
   color: $darker-grey;

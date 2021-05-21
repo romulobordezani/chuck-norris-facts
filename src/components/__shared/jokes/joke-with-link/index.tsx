@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 import { IJoke, IQuery } from '@types';
-import { highLight } from '@utils';
+import { highLight, createRipple } from '@utils';
 import styles from './style.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +16,7 @@ const JokeWithLink: FunctionComponent<IJokeWithLinkProps> = ({
     query
 }) => {
     return (
-        <div className={styles.joke}>
+        <div className={styles.joke} onClick={createRipple}>
             <div className={styles.joke__link}>
                 <Link href={`/jokes/${joke?.id}`}>
                     <a dangerouslySetInnerHTML={highLight(joke?.value, query)} />

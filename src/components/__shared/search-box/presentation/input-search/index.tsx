@@ -4,6 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { IQuery } from '@types';
 
 import styles from './style.module.scss';
+import { createRipple } from '@utils';
 
 interface IInputSearch {
     query: IQuery;
@@ -27,9 +28,10 @@ const InputSearch: FunctionComponent<IInputSearch> = ({ query, setQuery }) => {
                 type="submit"
                 className={styles.searchBox__submit}
                 role="button"
+                onClick={createRipple}
             >
                 Search
-                <FontAwesomeIcon icon={faSearch} width={26} />
+                <FontAwesomeIcon icon={faSearch} width={46} />
             </button>
         </div>
     );

@@ -119,3 +119,6 @@ Following, a list of stuff I would like to do, but there is no more time...
 * Log rotation system, integrated with some monitoring tool like SPlunk, Kibana + Elastic Search, New Relic etc.
 * Github badge with code coverage on README.md
 * Add internationalization with i18n, supporting multiple languages
+* Share APi support
+* Ripple effect on Joke listing page
+* Make it faster loading jokes from state instead of recalling API
