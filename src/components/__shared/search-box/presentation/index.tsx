@@ -3,7 +3,7 @@ import React, { Dispatch, FormEvent, FunctionComponent, InputHTMLAttributes } fr
 import styles from './style.module.scss';
 import { IQuery } from '@types';
 import RandomSearchButton from './random-search-button';
-import InputSearch, { InputProps } from './input-search';
+import InputSearch from './input-search';
 
 interface ISearchBoxPresentationProps {
     handleSubmit: (event: FormEvent) => void;

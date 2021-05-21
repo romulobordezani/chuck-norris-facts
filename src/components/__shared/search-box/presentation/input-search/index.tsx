@@ -1,4 +1,4 @@
-import React, { Dispatch, FunctionComponent, forwardRef, ForwardedRef } from 'react';
+import React, { Dispatch } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { IQuery } from '@types';
