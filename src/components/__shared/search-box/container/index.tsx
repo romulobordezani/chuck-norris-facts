@@ -1,9 +1,17 @@
 import SearchBoxPresentation from '../presentation';
-import React, { FormEvent, FunctionComponent, useCallback, useEffect, useState } from 'react';
+import React, { 
+    FormEvent,
+    FunctionComponent,
+    useCallback,
+    useEffect,
+    useState,
+    useRef
+} from 'react';
 import { IQuery } from '@types';
 import * as actions from '../action-creators';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { IRootState } from 'store';
 
 export interface ISearchBoxContainerProps {
     initialQuery: IQuery;
@@ -14,7 +22,9 @@ const SearchBoxContainer: FunctionComponent<ISearchBoxContainerProps> = ({
 }) => {
     const router = useRouter();
     const dispatch = useDispatch();
+    const { data } = useSelector((state: IRootState) => state.search);
     const [query, setQuery] = useState<IQuery>(initialQuery);
+    const inputEl = useRef<HTMLInputElement>(null);
 
     const handleSubmit = useCallback((event: FormEvent | null): void => {
         dispatch(actions.handleSubmit(event, query));
@@ -30,12 +40,21 @@ const SearchBoxContainer: FunctionComponent<ISearchBoxContainerProps> = ({
         setQuery(initialQuery);
     }, [initialQuery]);
 
+    useEffect(() => {
+        const hasContent = data.length > 0;
+
+        if (hasContent) {
+            inputEl?.current?.blur();
+        }
+    }, [data]);
+
     return (
         <SearchBoxPresentation {...{
             handleSubmit,
             handleLuckySubmit,
             query,
-            setQuery
+            setQuery,
+            inputEl
         }} />
     );
 };

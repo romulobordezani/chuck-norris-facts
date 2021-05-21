@@ -23,7 +23,7 @@ const Results: FunctionComponent<IResultProps> = ({
         <div className={styles.results} data-testid="results-component">
             {isALucky && (
                 <h3>
-                    Just <span className={styles.results__amount}>a lucky</span> result.
+                    Just <span className={styles.results__amount}>one lucky</span> result.
                 </h3>
             )}
 
