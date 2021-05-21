@@ -6,7 +6,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  
 
   @include breakpoint($bp__medium-up) {
     justify-content: space-between;
@@ -14,9 +13,16 @@
   }
 
   &__text {
-    display: block;
+    display: flex;
+    align-items: center;
     height: 100%;
     white-space: pre-wrap;
+
+    &__backButton {
+      width: 5rem;
+      padding: 1rem;
+      font-size: 0;
+    }
   }
 
   &__socials {

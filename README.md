@@ -108,7 +108,8 @@ yarn lint
 * Does **NOT** use any design system as Material Ui, Bootstrap or any similar to show some CSS skills 
 * Using only Breakpoint SASS as Responsiveness Framework, with support to DPI and orientation 📱💻🖥 
 * PWA Service Worker, to have a better control of caching and allow users to install offline on mobile.
-
+* Share APi support
+* Ripple effect on Joke listing page
 
 ## ROADMAP 
 
@@ -119,6 +120,4 @@ Following, a list of stuff I would like to do, but there is no more time...
 * Log rotation system, integrated with some monitoring tool like SPlunk, Kibana + Elastic Search, New Relic etc.
 * Github badge with code coverage on README.md
 * Add internationalization with i18n, supporting multiple languages
-* Share APi support
-* Ripple effect on Joke listing page
-* Make it faster loading jokes from state instead of recalling API
+* Make it faster loading jokes from state instead of recalling API from SSR

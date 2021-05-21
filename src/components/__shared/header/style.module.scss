@@ -17,6 +17,7 @@
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: -30% 90%;
+  z-index: 1000;
 
   @include breakpoint($bp__medium-up) {
     background-size: contain;
@@ -37,6 +38,4 @@
     }
 
   }
-
-  &__searchBox {}
 }

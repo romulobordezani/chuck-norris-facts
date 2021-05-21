@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { IJoke } from '@types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { faShareAlt, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { shareAction } from '@utils';
 
 import styles from './style.module.scss';
@@ -21,6 +21,17 @@ const JokeSocials: FunctionComponent<IJokeSocialsProps> = ({
     return (
         <div className={styles.joke}>
             <div className={styles.joke__text}>
+                <div className={styles.joke__text__backButton}>
+                    <a
+                        title="Back"
+                        href="#"
+                        onClick={/* istanbul ignore next */() => {
+                            history.back();
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faArrowLeft} width={26} /> Share on Twitter
+                    </a>
+                </div>
                 {joke?.value}
             </div>
             <div className={styles.joke__socials}>
@@ -59,7 +70,6 @@ const JokeSocials: FunctionComponent<IJokeSocialsProps> = ({
                         href="#"
                         title="Share"
                         onClick={/* istanbul ignore next */ () => {
-                                
                                 shareAction({
                                     title: 'Norris Did',
                                     url: jokeURL,
