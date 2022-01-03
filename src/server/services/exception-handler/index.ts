@@ -37,7 +37,8 @@ class ExceptionHandler {
 	static applySideEffects(
 		req: NextApiRequest,
 		res: NextApiResponse,
-		error: AxiosError
+		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+		error: any
 	): void {
 		const { constructor: errorType, message } = error;
 		const clean = ExceptionHandler.cleanErrorMessage;
