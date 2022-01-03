@@ -2,7 +2,7 @@ slsNextApp:
   component: "@sls-next/serverless-component@1.18.0"
   inputs:
     cloudfront:
-      distributionId: EGVDOJA0A39SX
+      distributionId: E1ZJ8V57TAVQDF
     timeout:
       defaultLambda: 20
       apiLambda: 15
