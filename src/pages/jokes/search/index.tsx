@@ -38,7 +38,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
 
     try {
-        const isAnEmptyQuery = !('query' in context?.query) || context?.query?.query === '';
+        const { query } = context;
+        const isAnEmptyQuery = !('query' in query) || context?.query?.query === '';
 
         if (isAnEmptyQuery) {
             delete emptyProps?.props?.initialQuery;
@@ -47,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        const isTheQueryTooShort = ('query' in context?.query && context?.query?.query?.length < 3);
+        const isTheQueryTooShort = ('query' in query && query?.query?.length < 3);
 
         if (isTheQueryTooShort) {
             console.error('search.query: size must be between 3 and 120');

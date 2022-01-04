@@ -19,15 +19,25 @@
     white-space: pre-wrap;
 
     &__backButton {
-      width: 5rem;
       padding: 1rem;
       font-size: 0;
+
+      > a {
+        height: $buttonHeight - 1.5rem !important;
+        width: $buttonHeight - 1.5rem !important;
+
+        svg {
+          height: $buttonHeight - 1.5rem !important;
+          width: $buttonHeight - 1.5rem !important;
+        }
+      }
     }
   }
 
   &__socials {
     margin: 2rem 0;
     width: 15rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -42,6 +52,8 @@
 
       svg {
         vertical-align: text-bottom;
+        height: $buttonHeight - 1.5rem !important;
+        width: $buttonHeight - 1.5rem !important;
       }
     }
 

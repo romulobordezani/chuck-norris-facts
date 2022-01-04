@@ -37,7 +37,7 @@ const InputSearch = React.forwardRef<HTMLInputElement, Ref>(
                 onClick={createRipple}
             >
                 Search
-                <FontAwesomeIcon icon={faSearch} width={46} />
+                <FontAwesomeIcon icon={faSearch} width={46} height={46}/>
             </button>
         </div>
     );

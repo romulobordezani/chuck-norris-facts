@@ -20,7 +20,7 @@
 
   svg {
     vertical-align: text-bottom;
-    height: $buttonHeight - 1.5rem;
-    width: $buttonHeight - 1.5rem;
+    height: $buttonHeight - 1.5rem !important;
+    width: $buttonHeight - 1.5rem !important;
   }
 }

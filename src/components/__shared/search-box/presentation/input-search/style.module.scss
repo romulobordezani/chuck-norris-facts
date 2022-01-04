@@ -43,13 +43,8 @@
     font-size: 0;
 
     svg {
-      height: $buttonHeight - 0.5rem;
-      width: $buttonHeight - 0.5rem;
-
-      @include breakpoint($bp__medium-up) {
-        height: $buttonHeight - 1.5rem;
-         width: $buttonHeight - 1.5rem;
-      }
+      height: $buttonHeight - 1.5rem !important;
+      width: $buttonHeight - 1.5rem !important;
     }
   }
 }

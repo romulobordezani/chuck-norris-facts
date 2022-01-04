@@ -19,7 +19,7 @@ This is a [`challenge`](./CHALLENGE.md) made with 🧡, hoping to join Nuuvem te
 Available at [https://github.com/romulobordezani/chuck-norris-facts](https://github.com/romulobordezani/chuck-norris-facts), with all it's commits telling the whole developmet history, issues, bugs fixed and `Github actions`.
 
 ## At AWS:
-Available at: [d2tm27xictsjm2.cloudfront.net/](https://d2tm27xictsjm2.cloudfront.net)
+Available at: [https://d38zbgz4g6geh6.cloudfront.net/](https://d38zbgz4g6geh6.cloudfront.net/)
 
 ## Getting Started
 

@@ -30,6 +30,7 @@ module.exports = {
 		'!<rootDir>/src/test/index.ts',
 		'!<rootDir>/public/**'
 	],
+	testEnvironment: 'jsdom',
 	coverageThreshold: {
 		global: {
 			branches: 100,

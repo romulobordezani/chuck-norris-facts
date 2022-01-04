@@ -29,7 +29,7 @@ const JokeSocials: FunctionComponent<IJokeSocialsProps> = ({
                             history.back();
                         }}
                     >
-                        <FontAwesomeIcon icon={faArrowLeft} width={26} /> Share on Twitter
+                        <FontAwesomeIcon icon={faArrowLeft} width={26} height={26} /> Share on Twitter
                     </a>
                 </div>
                 {joke?.value}
@@ -80,7 +80,7 @@ const JokeSocials: FunctionComponent<IJokeSocialsProps> = ({
                     >
                         <FontAwesomeIcon icon={faShareAlt} width={26} /> Share
                     </a>
-                </div>               
+                </div>
             </div>
         </div>
     );
